@@ -54,7 +54,6 @@ class CaptionDataset(Dataset):
         caption = row['caption'].strip()
         image_base64 = row['image_base64']
         image_id = row['image_id']
-
         # 加载图片，并进行预处理
         try:
             image = Image.open(BytesIO(base64.urlsafe_b64decode(image_base64)))

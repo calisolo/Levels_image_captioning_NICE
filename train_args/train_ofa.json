@@ -1,6 +1,6 @@
 {
     "output_dir": "output/ofa",
-    "model_name_or_path": "./OFA-tiny",
+    "model_name_or_path": "OFA-Sys/ofa-huge",
     "train_caption_file": "./data/train_caption.jsonl",
     "train_image_file": "../drive/MyDrive/NICE/train_image.tsv",
     "test_caption_file": null,

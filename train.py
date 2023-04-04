@@ -1,4 +1,5 @@
 from component.ofa.modeling_ofa import OFAModelForCaption
+from component.ofa.tokenization_ofa import OFATokenizer
 from transformers import (
     HfArgumentParser,
     TrainingArguments,
@@ -35,7 +36,7 @@ def main():
     # 设置随机种子
     set_seed(training_args.seed)
     # 初始化模型
-    tokenizer = BertTokenizerFast.from_pretrained(args.model_name_or_path)
+    tokenizer = OFATokenizer.from_pretrained(args.model_name_or_path)
     model = OFAModelForCaption.from_pretrained(args.model_name_or_path)
     # 是否将encoder的权重冻结，仅对decoder进行finetune
     if args.freeze_encoder:
