@@ -1,13 +1,15 @@
-# OFA-Chinese：中文多模态统一预训练模型
+# OFA-HFeng-NICE
 
-## 项目简介
-微信公众号【YeungNLP】文章：[OFA-Chinese：中文多模态统一预训练模型](https://mp.weixin.qq.com/s/thRbR1i6cZk8zUz3y2mq6g)
+## Reference
 
-OFA是由阿里达摩院发布的多模态预训练模型，OFA将各种模态任务统一于seq2seq框架中。如下图所示，OFA支持的下游任务包括但不限于Image Caption、Image Classification、
-Image genaration、Language Understanding等等。
+Backbone model 
+- [OFA：Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework](https://arxiv.org/pdf/2202.03052.pdf)  
+- [OFA github](https://github.com/OFA-Sys/OFA)
 
-本项目旨在以Huggingface的transformers框架实现中文OFA模型的训练和推理，并且已成功在中文Image Caption任务上完成验证。关于OFA模型更详细的介绍，可以查阅[OFA论文：Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework](https://arxiv.org/pdf/2202.03052.pdf)
-和[OFA官方代码库](https://github.com/OFA-Sys/OFA)
+Backbone code
+- [OFA-Chinese github](https://github.com/yangjianxin1/OFA-Chinese) 
+- [OFA-Chinese huggingface wrapped](https://mp.weixin.qq.com/s/thRbR1i6cZk8zUz3y2mq6g)
+
 
 ![ofa-task](./images/ofa-task.png)
 
