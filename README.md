@@ -8,7 +8,7 @@ Backbone model
 
 Backbone code
 - [OFA-Chinese github](https://github.com/yangjianxin1/OFA-Chinese) 
-- [OFA-Chinese huggingface wrapped](https://mp.weixin.qq.com/s/thRbR1i6cZk8zUz3y2mq6g)
+- [OFA-Chinese detail](https://mp.weixin.qq.com/s/thRbR1i6cZk8zUz3y2mq6g)
 
 
 ![ofa-task](./images/ofa-task.png)
