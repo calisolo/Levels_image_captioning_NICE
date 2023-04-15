@@ -41,8 +41,7 @@ def main():
     # 是否将encoder的权重冻结，仅对decoder进行finetune
     if args.freeze_encoder:
         for name, param in model.encoder.named_parameters():
-            # encoder与decoder共享词向量
-            # 不冻结词向量权重，对词向量权重进行继续训练
+            # encoder,decoder는 단어벡터 공유하기때문에 freeze 예외
             if 'embed_tokens' in name and not args.freeze_word_embed:
                 param.requires_grad = True
             # 冻结权重
