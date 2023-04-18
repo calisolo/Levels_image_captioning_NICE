@@ -8,16 +8,19 @@ class CaptionCollator(object):
         self.max_seq_length = max_seq_length
 
     def __call__(self, features: List[Dict[str, Any]]) -> Dict[str, Any]:
-        captions, patch_images = [], []
+        captions, patch_images, encoded_prefix = [], [], []
         for data in features:
             # 如果图片预处理失败，则跳过该图片
             if data['patch_image'] is None:
                 continue
             captions.append(data['caption'])
             patch_images.append(data['patch_image'])
+
+            encoded_prefix.append(' what does the image describe?'+data['encoder_prefix'])
+            #[' what does the image describe?']*len(captions)
         # 获得encoder的输入
         input_ids = self.tokenizer(
-            [' what does the image describe?']*len(captions), return_tensors="pt", max_length=self.max_seq_length, truncation=True, padding=True
+            encoded_prefix, return_tensors="pt", max_length=self.max_seq_length, truncation=True, padding=True
         ).input_ids
         patch_images = torch.concat(patch_images, dim=0)
 

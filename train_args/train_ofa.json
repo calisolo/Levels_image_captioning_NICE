@@ -1,5 +1,5 @@
 {
-    "output_dir": "../drive/MyDrive/NICE/model/0406",
+    "output_dir": "../drive/MyDrive/NICE/model/0418",
     "model_name_or_path": "OFA-Sys/ofa-huge",
     "train_caption_file": "./data/train_caption.jsonl",
     "train_image_file": "../drive/MyDrive/NICE/train_image.tsv",
@@ -9,7 +9,7 @@
     "freeze_word_embed": true,
     "num_train_epochs": 50,
     "max_steps": -1,
-    "per_device_train_batch_size": 128,
+    "per_device_train_batch_size": 24,
     "per_device_eval_batch_size": 256,
     "learning_rate": 5e-5,
     "max_seq_length": 150,
