@@ -17,6 +17,7 @@ class CaptionCollator(object):
             patch_images.append(data['patch_image'])
 
             encoded_prefix.append(' what does the image describe?'+data['encoder_prefix'])
+            
             #[' what does the image describe?']*len(captions)
         # 获得encoder的输入
         input_ids = self.tokenizer(
