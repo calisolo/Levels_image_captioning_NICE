@@ -36,7 +36,7 @@ def main():
     # 设置随机种子
     set_seed(training_args.seed)
     # 初始化模型
-    tokenizer = OFATokenizer.from_pretrained(args.model_name_or_path)
+    tokenizer = OFATokenizer.from_pretrained('./vocab')
     model = OFAModelForCaption.from_pretrained(args.model_name_or_path)
     # 是否将encoder的权重冻结，仅对decoder进行finetune
     if args.freeze_encoder:
