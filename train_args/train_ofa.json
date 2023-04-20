@@ -1,5 +1,5 @@
 {
-    "output_dir": "../drive/MyDrive/NICE/model/0418",
+    "output_dir": "../drive/MyDrive/NICE/model/0420",
     "model_name_or_path": "OFA-Sys/ofa-huge",
     "train_caption_file": "./data/train_caption.jsonl",
     "train_image_file": "../drive/MyDrive/NICE/train_image.tsv",
