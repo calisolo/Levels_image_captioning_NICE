@@ -10,6 +10,8 @@ Backbone code
 - [OFA-Chinese github](https://github.com/yangjianxin1/OFA-Chinese) 
 - [OFA-Chinese detail](https://mp.weixin.qq.com/s/thRbR1i6cZk8zUz3y2mq6g)
 
+[Checkpoint transition](https://colab.research.google.com/drive/1LLJewY92LXdeug5m_ceMUHdlqrRQwSQJ?usp=sharing)
+ ?? -> hf style
 
 ![ofa-task](./images/ofa-task.png)
 
