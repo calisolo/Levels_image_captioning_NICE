@@ -1,5 +1,5 @@
 {
-    "output_dir": "../drive/MyDrive/NICE/model/0422_train_encoder",
+    "output_dir": "../drive/MyDrive/NICE/model/0424_hyperparameter",
     "model_name_or_path": "../drive/MyDrive/NICE/model/cap_best/OFA-huge-caption",
     "train_caption_file": "./data/train_caption.jsonl",
     "train_image_file": "../drive/MyDrive/NICE/train_image.tsv",
