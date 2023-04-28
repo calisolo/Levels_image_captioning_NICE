@@ -37,6 +37,7 @@ class CaptionCollator(object):
             'patch_images': patch_images,
             'decoder_input_ids': decoder_input_ids,
             'attention_mask': attention_mask,
-            'return_loss': True
+            'return_loss': True,
+            'gt':captions
         }
         return inputs

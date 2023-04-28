@@ -66,5 +66,5 @@ class CaptionDataset(Dataset):
             logger.info(e)
             patch_image = None
 
-        data = {'patch_image': patch_image, 'caption': caption, 'encoder_prefix': encoder_prefix}
+        data = {'patch_image': patch_image, 'caption': caption, 'encoder_prefix': encoder_prefix, 'image_id':image_id}
         return data
