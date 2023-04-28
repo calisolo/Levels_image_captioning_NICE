@@ -8,12 +8,13 @@ class CaptionCollator(object):
         self.max_seq_length = max_seq_length
 
     def __call__(self, features: List[Dict[str, Any]]) -> Dict[str, Any]:
-        captions, patch_images, encoded_prefix = [], [], []
+        captions, patch_images, encoded_prefix,gt_index = [], [], [], []
         for data in features:
             # 如果图片预处理失败，则跳过该图片
             if data['patch_image'] is None:
                 continue
             captions.append(data['caption'])
+            gt_index.append(data['image_id'])
             patch_images.append(data['patch_image'])
 
             encoded_prefix.append(' what does the image describe?'+data['encoder_prefix'])
@@ -38,6 +39,7 @@ class CaptionCollator(object):
             'decoder_input_ids': decoder_input_ids,
             'attention_mask': attention_mask,
             'return_loss': True,
-            'gt':captions
+            'gt':captions,
+            'gt_index': gt_index
         }
         return inputs
