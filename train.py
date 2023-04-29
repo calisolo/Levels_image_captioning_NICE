@@ -15,6 +15,7 @@ import os
 import json
 from os.path import join
 from component.datacollator import CaptionCollator
+from component.scst import ScstTrainer
 
 
 def main():
@@ -62,6 +63,13 @@ def main():
         data_collator=data_collator,
         tokenizer=tokenizer
     )
+    # trainer = ScstTrainer(
+    #     model=model,
+    #     args=training_args,
+    #     train_dataset=train_dataset,
+    #     data_collator=data_collator,
+    #     tokenizer=tokenizer
+    # )
 
     # 开始训练
     train_result = trainer.train()
