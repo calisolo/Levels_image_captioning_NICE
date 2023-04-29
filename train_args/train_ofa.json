@@ -1,11 +1,11 @@
 {
-    "output_dir": "../drive/MyDrive/NICE/model/0424_hyperparameter",
+    "output_dir": "../drive/MyDrive/NICE/model/0430_freeze_encoder",
     "model_name_or_path": "../drive/MyDrive/NICE/model/cap_best/OFA-huge-caption",
     "train_caption_file": "./data/train_caption.jsonl",
     "train_image_file": "../drive/MyDrive/NICE/train_image.tsv",
     "test_caption_file": null,
     "test_image_file": null,
-    "freeze_encoder": false,
+    "freeze_encoder": true,
     "freeze_word_embed": false,
     "num_train_epochs": 20,
     "max_steps": -1,
