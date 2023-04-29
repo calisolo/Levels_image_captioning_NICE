@@ -1,31 +1,38 @@
 from transformers import Trainer
-
+import torch
+from pycocoevalcap.cider.cider import Cider
+from component.ofa.tokenization_ofa import OFATokenizer
 class ScstTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False):
         ## eval sample output to get reward
         gen_target = [] #생성 토큰
         gen_res = [] #디코드 문장
         gt_res = [] # 정답문장
-        for batch in train_dataloader:
+        
+        #객체화 잘하면 여기서 빠져나갈듯
+        tokenizer = OFATokenizer.from_pretrained('./vocab', verbose = False )
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-          model.eval()
-          with torch.no_grad():
-            output = model.generate(input_ids = batch['input_ids'], patch_images = batch['patch_images'],num_beams=5, no_repeat_ngram_size=3, max_length = 40,
-                                      use_cache=False  )
+        model.eval()
+        with torch.no_grad():
+          output = model.generate(input_ids = inputs['input_ids'], patch_images = inputs['patch_images'],num_beams=5, no_repeat_ngram_size=3, max_length = 40,
+                                    use_cache=False  )
+          gen_sentence = tokenizer.batch_decode(output, skip_special_tokens=True)
+          gen_target.append(output)
+          gen_res.append(gen_sentence)
+          for _ in range(4):
+            output = model.generate(input_ids = inputs['input_ids'], patch_images = inputs['patch_images'],temperature = 2.0,
+                                    do_sample =  True,max_length = 40,
+                                  #num_beams=5, no_repeat_ngram_size=3, 
+                                    use_cache=False )
             gen_sentence = tokenizer.batch_decode(output, skip_special_tokens=True)
             gen_target.append(output)
             gen_res.append(gen_sentence)
-            for _ in range(4):
-              output = model.generate(input_ids = batch['input_ids'], patch_images = batch['patch_images'],temperature = 2.0,
-                                      do_sample =  True,max_length = 40,
-                                    #num_beams=5, no_repeat_ngram_size=3, 
-                                      use_cache=False )
-              gen_sentence = tokenizer.batch_decode(output, skip_special_tokens=True)
-              gen_target.append(output)
-              gen_res.append(gen_sentence)
-          caption = batch['gt']
-          gt_index = batch['gt_index']
-          gt_res = caption
+        caption = inputs['gt']
+        gt_index = inputs['gt_index']
+        gt_res = caption
+
+
         dict_gt,dict_gen = {},{}
         for index, id in enumerate(gt_index):
           for i in range(len(gen_res)):
@@ -56,10 +63,10 @@ class ScstTrainer(Trainer):
 
         model.train()
         sample_src_tokens = torch.repeat_interleave(
-            batch['input_ids'], seq_per_img, dim=0
+            inputs['input_ids'], seq_per_img, dim=0
         )
         sample_patch_images = torch.repeat_interleave(
-                batch['patch_images'], seq_per_img, dim=0
+                inputs['patch_images'], seq_per_img, dim=0
         )
 
         len_max = 0
@@ -68,7 +75,7 @@ class ScstTrainer(Trainer):
             len_max = i.size(1)
         for j in range(batch_size):
           for i in range(seq_per_img ):
-            padding = torch.ones(len_max - len(gen_target[i][j]), dtype = torch.int64)
+            padding = torch.ones(len_max - len(gen_target[i][j]), dtype = torch.int64, device = device)
             gen_padded = torch.cat((gen_target[i][j], padding))
             if i==0 and j==0:
               gen_prev_output_tokens = gen_padded.unsqueeze(0)

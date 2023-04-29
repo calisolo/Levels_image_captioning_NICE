@@ -56,20 +56,20 @@ def main():
     data_collator = CaptionCollator(tokenizer=tokenizer, max_seq_length=args.max_seq_length)
 
     # 初始化训练器
-    trainer = Trainer(
-        model=model,
-        args=training_args,
-        train_dataset=train_dataset,
-        data_collator=data_collator,
-        tokenizer=tokenizer
-    )
-    # trainer = ScstTrainer(
+    # trainer = Trainer(
     #     model=model,
     #     args=training_args,
     #     train_dataset=train_dataset,
     #     data_collator=data_collator,
     #     tokenizer=tokenizer
     # )
+    trainer = ScstTrainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_dataset,
+        data_collator=data_collator,
+        tokenizer=tokenizer
+    )
 
     # 开始训练
     train_result = trainer.train()
