@@ -1,7 +1,7 @@
 {
     "output_dir": "../drive/MyDrive/NICE/model/0430_freeze_encoder",
     "model_name_or_path": "../drive/MyDrive/NICE/model/cap_best/OFA-huge-caption",
-    "train_caption_file": "./data/train_caption.jsonl",
+    "train_caption_file": "./data/train_caption_catAdded.jsonl",
     "train_image_file": "../drive/MyDrive/NICE/train_image.tsv",
     "test_caption_file": null,
     "test_image_file": null,
@@ -27,7 +27,7 @@
     "no_cuda": false,
     "dataloader_num_workers": 8,
     "save_strategy": "steps",
-    "weight_decay": 0.01,
+    "weight_decay": 0,
     "max_grad_norm": 1.0,
     "remove_unused_columns": false
 }
