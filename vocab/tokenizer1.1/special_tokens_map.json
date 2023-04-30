@@ -1,5 +1,4 @@
 {
-  "add_prefix_space": false,
   "additional_special_tokens": [
     "[cosHint lv4]",
     "[cosHint lv3]",
@@ -7,22 +6,9 @@
     "[cosHint lv1]",
     "[diffHint lv3]",
     "[diffHint lv2]",
-    "[diffHint lv1]",
-    "[shot_style]",
-    "[Location]",
-    "[NULL]",
-    "[outdoors]",
-    "[misc]",
-    "[office]",
-    "[electronics]",
-    "[food]",
-    "[indoors]",
-    "[medical]",
-    "[stocky_setting]",
-    "[animals]"
+    "[diffHint lv1],[shot_style],[Location],[NULL]"
   ],
   "bos_token": {
-    "__type": "AddedToken",
     "content": "<s>",
     "lstrip": false,
     "normalized": true,
@@ -30,7 +16,6 @@
     "single_word": false
   },
   "cls_token": {
-    "__type": "AddedToken",
     "content": "<s>",
     "lstrip": false,
     "normalized": true,
@@ -38,25 +23,20 @@
     "single_word": false
   },
   "eos_token": {
-    "__type": "AddedToken",
     "content": "</s>",
     "lstrip": false,
     "normalized": true,
     "rstrip": false,
     "single_word": false
   },
-  "errors": "replace",
   "mask_token": {
-    "__type": "AddedToken",
     "content": "<mask>",
     "lstrip": true,
     "normalized": true,
     "rstrip": false,
     "single_word": false
   },
-  "name_or_path": "OFA-Sys/ofa-huge",
   "pad_token": {
-    "__type": "AddedToken",
     "content": "<pad>",
     "lstrip": false,
     "normalized": true,
@@ -64,17 +44,13 @@
     "single_word": false
   },
   "sep_token": {
-    "__type": "AddedToken",
     "content": "</s>",
     "lstrip": false,
     "normalized": true,
     "rstrip": false,
     "single_word": false
   },
-  "special_tokens_map_file": null,
-  "tokenizer_class": "OFATokenizer",
   "unk_token": {
-    "__type": "AddedToken",
     "content": "<unk>",
     "lstrip": false,
     "normalized": true,
