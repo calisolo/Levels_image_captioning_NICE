@@ -6,31 +6,26 @@ Backbone model
 - [OFA：Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework](https://arxiv.org/pdf/2202.03052.pdf)  
 - [OFA github](https://github.com/OFA-Sys/OFA)
 
-Backbone code
+codebase
 - [OFA-Chinese github](https://github.com/yangjianxin1/OFA-Chinese) 
 - [OFA-Chinese detail](https://mp.weixin.qq.com/s/thRbR1i6cZk8zUz3y2mq6g)
 
-[Checkpoint transition](https://colab.research.google.com/drive/1LLJewY92LXdeug5m_ceMUHdlqrRQwSQJ?usp=sharing)
- ?? -> hf style
 
 ![ofa-task](./images/ofa-task.png)
 
-### 项目动机
-在OFA官方代码库中，同时实现了fairseq和transformers两套框架的模型结构，并且官方同时开源了中文和英文的模型权重。基于下列原因，笔者开发了本项目：
-- 由于笔者对transformers框架更熟悉，所以希望基于transformers框架，使用域内数据对OFA模型进行finetune，但OFA的中文预训练权重只有fairseq版本，没有transformers版本。
-- 中文OFA预训练权重只有fairseq版本，如何将官方fairseq版本的预训练权重转换为transformers权重，从而使得下游任务可以基于transformers框架的中文预训练权重进行finetune。
-- 官方代码库中，由于需要兼容各种实验配置，所以代码也比较冗余，使用起来不方便。笔者希望能够将核心逻辑剥离出来，应用于自身任务，实现域内数据进行finetune。
+### OFA Chinese 프로젝트 관련 설명
+- OFA-sys 공식 코드베이스에는 여러 실험적 구성과 호환하기 위해 복잡도가 높습니다. 여기에 핵심논리만을 남긴 미세조정 코드를 huggingface 버전으로 구현한 것이 OFA Chinese입니다.
+본 프로젝트는 OFA Chinese를 기반으로 변형하여 NICE(New frontiers for zero-shot Image Captioning Evaluation) challenge 2023 를 도전하여 [TBD] 의 성과를 내었습니다.
 
-### 主要工作
-- 阅读分析OFA官方代码库，剥离出核心逻辑，包括训练逻辑、model、tokenizer等，能够以transformers框架进行下游任务的finetune和推理，简化使用方式。
-- 将官方的fairseq版本的中文预训练权重，转化为transformers版本，用于下游任务进行finetune。
-- 基于本项目，使用中文多模态MUGE数据集中的Image Caption数据集，以LiT-tuning的方式，finetune模型，验证了本项目的可行性。
-- 开源五个transformers版本的中文OFA模型权重，包括笔者由官方权重转化而来的四个权重，以及笔者使用MUGE数据集finetune得到的权重。
+### 주요 작업
+- NICE dataset의 핵심적인 특징을 활용하여 챌린지에 특화된 형태로 데이터 입력을 재구성 하였습니다.
+- 본 접근법은 이미지 인코더를 훈련시킨다기보다는 이미지 캡션의 특징을 잘 훈련된 이미지 인코더 피쳐와 연결하는 방법론이기 때문에, 우수한 성능을 입증한 오픈 라이센스 모델 OFA를 활용하였습니다.
+- OFA는 여러 이미지-텍스트 관련 멀티모달 태스크를 한 모델에서 전부 수행하는 모델이지만, 본 태스크는 이미지 캡셔닝에 제한된 만큼 이미지 캡셔닝에 특화된 체크포인트를 활용하였습니다. 
+체크포인트를 fairseq 스타일에서 huggingface 스타일로 모델 체크포인트 트랜지션을 수행하는 방법은 아래 코드를 참조했으며 크레딧을 드리고 싶습니다.
+- [Checkpoint transition](https://colab.research.google.com/drive/1LLJewY92LXdeug5m_ceMUHdlqrRQwSQJ?usp=sharing)
+ fairseq style -> hf style
 
-
-### 预模型权重分享
-官方开源的中文预训练权重详见：[官方开源的中文预训练权重](https://github.com/OFA-Sys/OFA/blob/main/checkpoints_cn.md) ,预训练权重使用方式详见下文
-
+### 모델 상세
 | 预训练权重                        | 简介                                                                 | 模型地址                                                |
 |------------------------------|-----------------------------------------------------------|-----------------------------------------------------|
 | YeungNLP/ofa-cn-base-muge-v2 | 笔者加载ofa-cn-base权重，使用muge数据集进行image caption任务finetune得到的权重  | https://huggingface.co/YeungNLP/ofa-cn-base-muge-v2 |
@@ -40,27 +35,27 @@ Backbone code
 | YeungNLP/ofa-cn-large-muge   | 由官方OFA-CN-Large-MUGE转换而来的权重         | https://huggingface.co/YeungNLP/ofa-cn-large-muge   |
 
 
-## 项目细节
+## 프로젝트 세부정보
 
-### 项目结构
-- data:存放训练数据
-- images：存放一些测试的图片
-- component:一些模块
-  - ofa:ofa模型结构
-  - argument.py：定制一些训练配置参数
+### 리포지토리 구조
+- data: 데이터 저장 (코사인 유사도/ 입력 데이터)
+- images： 입력 이미지 저장 (base64 형식)
+- component:
+  - ofa:ofa 모델 구조
+  - argument.py：학습 파라미터
   - datacollator.py
   - dataset.py
-- train_args：训练参数的配置文件
-- vocab：笔者转换得到的中文OFA模型的tokenizer的配置目录，本质上是BertTokenizer的配置。
-- convert_weight.py：将官方fairseq权重，转换为transformers版本。
-- generate.py：加载模型权重，进行image caption的生成脚本。
+- train_args：학습 파라미터 구성 파일
+- vocab：본 방법론에서 활용하기위한 스페셜 토큰을 추가한 토크나이저
+- convert_weight.py：해당 코드베이스에서도 가중치 변환을 제공하고 있었는데 발견하지 못해 미사용 ㅠㅠ
+- generate.py：생성 예시이지만 미사용
 
 
-### 数据集介绍
-笔者使用[MUGE数据集](https://tianchi.aliyun.com/dataset/107332) 中的image caption数据，数据集由两个文件组成：caption数据和图片数据，详细可查看官方说明。
-将该数据集中的训练集与验证集进行合并，作为本项目的训练集。其中图片共5.5w张，每张图片包含10个caption，最终构成55w个图文对训练数据。
+### 데이터셋 소개
+작성자는 NICE validation dataset을 훈련 데이터로 사용합니다.  데이터셋은 캡션 데이터와 이미지 데이터 두가지 파일로 구성됩니다.  
+훈련 데이터는 (5000건)   테스트 데이터는 (21377건)으로 구성되어 있으며, 모델에 힌트를 제공하기 위하여 코사인 유사도를 계산하는 전처리를 거칩니다.
 
-caption数据，jsonl格式：
+caption데이터 ，jsonl 형식：
 ```
 {"image_id": "007c720f1d8c04104096aeece425b2d5", "text": ["性感名媛蕾丝裙，尽显优雅撩人气质", "衣千亿，时尚气质名媛范", "80后穿唯美蕾丝裙，绽放优雅与性感", "修身连衣裙，女人就该如此优雅和美丽", "千亿包臀连衣裙，显出曼妙身姿", "衣千亿包臀连衣裙，穿的像仙女一样美", "衣千亿连衣裙，令人夺目光彩", "奔四女人穿气质连衣裙，高雅名媛范", "V领包臀连衣裙，青春少女感", "衣千亿包臀连衣裙，穿出曼妙身姿提升气质"]}
 {"image_id": "00809abd7059eeb94888fa48d9b0a9d8", "text": ["藕粉色的颜色搭配柔软舒适的冰丝面料，满满的时尚感，大领设计也超级好看，露出性感锁骨线条，搭配宽腰带设计，优雅温柔又有气质", "传承欧洲文化精品女鞋，引领风尚潮流设计", "欧洲站风格女鞋，演绎个性时尚装扮", "高品质原创凉鞋，气质与华丽引领春夏", "欧洲风格站艾莎女鞋经典款式重新演绎打造新一轮原创单品优雅鞋型尽显女人的柔美，十分知性大方。随意休闲很显瘦，不仅显高挑还展现纤细修长的腿型，休闲又非常潮流有范。上脚舒适又百搭。", "阳春显高穿搭，气质单鞋不可缺少", "冰丝连衣裙，通勤优雅范", "一身粉色穿搭，梦幻迷人", "艾莎女性，浪漫摩登，演绎角色转换", "超时尚夏季凉鞋，一直“走”在时尚的前沿"]}
