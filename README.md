@@ -1,4 +1,11 @@
-# levels
+# Levels
+# Abstract
+
+This project was transformed based on OFA Chinese and challenged the NICE (New frontiers for zero-shot Image Captioning Evaluation) challenge 2023, resulting in Track2 2nd/ Total 4th. (CVPR 2023 Workshop)
+NICE is an Image Captioning Task, which is a task to create appropriate captions for each photo provided by ShutterStock.
+
+본 프로젝트는 OFA Chinese를 기반으로 변형하여 NICE(New frontiers for zero-shot Image Captioning Evaluation) challenge 2023 를 도전하여 Track2 2nd/ Total 4th의 성과를 내었습니다. (CVPR 2023 Workshop)
+NICE는 Image Captioning Task 로, ShutterStock 사에서 제공한 각 사진에 알맞는 캡션을 생성하는 과제입니다.
 
 Editing :joy_cat::joy_cat::joy_cat:
 
@@ -17,13 +24,11 @@ codebase
 
 ### OFA Chinese 프로젝트 관련 설명
 - OFA-sys 공식 코드베이스에는 여러 실험적 구성과 호환하기 위해 복잡도가 높습니다. 여기에 핵심논리만을 남긴 미세조정 코드를 huggingface 버전으로 구현한 것이 OFA Chinese입니다.
-본 프로젝트는 OFA Chinese를 기반으로 변형하여 NICE(New frontiers for zero-shot Image Captioning Evaluation) challenge 2023 를 도전하여 [TBD] 의 성과를 내었습니다.
+
 
 ### 주요 작업
-- NICE dataset의 핵심적인 특징을 활용하여 챌린지에 특화된 형태로 데이터 입력을 재구성 하였습니다.
-- 본 접근법은 이미지 인코더를 훈련시킨다기보다는 이미지 캡션의 특징을 잘 훈련된 이미지 인코더 피쳐와 연결하는 방법론이기 때문에, 우수한 성능을 입증한 오픈 라이센스 모델 OFA를 활용하였습니다.
-- OFA는 여러 이미지-텍스트 관련 멀티모달 태스크를 한 모델에서 전부 수행하는 모델이지만, 본 태스크는 이미지 캡셔닝에 제한된 만큼 이미지 캡셔닝에 특화된 체크포인트를 활용하였습니다. 
-체크포인트를 fairseq 스타일에서 huggingface 스타일로 모델 체크포인트 트랜지션을 수행하는 방법은 아래 코드를 참조했으며 크레딧을 드리고 싶습니다.
+- 본 접근법은 이미지 캡션의 특징을 잘 훈련된 이미지 인코더 피쳐와 연결하는 방법론이기 때문에, 우수한 성능을 입증한 오픈 라이센스 모델 OFA를 활용하였습니다.
+- 체크포인트를 fairseq 스타일에서 huggingface 스타일로 모델 체크포인트 트랜지션을 수행하는 방법은 아래 코드를 참조했으며 크레딧을 드립니다.
 - [Checkpoint transition](https://colab.research.google.com/drive/1LLJewY92LXdeug5m_ceMUHdlqrRQwSQJ?usp=sharing)
  fairseq style -> hf style
 
@@ -49,6 +54,8 @@ codebase
   - dataset.py
 - train_args：학습 파라미터 구성 파일
 - vocab：본 방법론에서 활용하기위한 스페셜 토큰을 추가한 토크나이저
+
+
 - convert_weight.py：해당 코드베이스에서도 가중치 변환을 제공하고 있었는데 발견하지 못해 미사용 ㅠㅠ
 - generate.py：생성 예시이지만 미사용
 
