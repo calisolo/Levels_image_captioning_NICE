@@ -17,42 +17,38 @@ You can check the submission creating procedure, output captions of each photo, 
 
 
 
-### OFA Chinese 프로젝트 관련 설명
-- OFA-sys 공식 코드베이스에는 여러 실험적 구성과 호환하기 위해 복잡도가 높습니다. 여기에 핵심논리만을 남긴 미세조정 코드를 huggingface 버전으로 구현한 것이 OFA Chinese입니다.
-
-
-### 주요 작업
-- 본 접근법은 이미지 캡션의 특징을 잘 훈련된 이미지 인코더 피쳐와 연결하는 방법론이기 때문에, 우수한 성능을 입증한 오픈 라이센스 모델 OFA를 활용하였습니다.
-- 체크포인트를 fairseq 스타일에서 huggingface 스타일로 모델 체크포인트 트랜지션을 수행하는 방법은 아래 코드를 참조했으며 크레딧을 드립니다.
+## Main task
+- Since this approach is a methodology that connects the features of image captions with well-trained image encoder features, we utilized the open license model OFA, which has proven high performance.
+- model checkpoint transition from fairseq style to huggingface style checkpoint, I refer to the code below and give credit.
 - [Checkpoint transition](https://colab.research.google.com/drive/1LLJewY92LXdeug5m_ceMUHdlqrRQwSQJ?usp=sharing)
  fairseq style -> hf style
 
-### 모델 상세
-| 预训练权重                        | 简介                                                                 | 模型地址                                                |
+### Model Checkpoints
+|         Model             | introduction                                              | Link                                               |
 |------------------------------|-----------------------------------------------------------|-----------------------------------------------------|
-| YeungNLP/ofa-cn-base-muge-v2 | 笔者加载ofa-cn-base权重，使用muge数据集进行image caption任务finetune得到的权重  | https://huggingface.co/YeungNLP/ofa-cn-base-muge-v2 |
-| YeungNLP/ofa-cn-base         | 由官方OFA-CN-Base转换而来的权重              | https://huggingface.co/YeungNLP/ofa-cn-base         |
-| YeungNLP/ofa-cn-large        | 由官方OFA-CN-Large转换而来的权重          | https://huggingface.co/YeungNLP/ofa-cn-large        |
-| YeungNLP/ofa-cn-base-muge    | 由官方OFA-CN-Base-MUGE转换而来的权重       | https://huggingface.co/YeungNLP/ofa-cn-base-muge    |
-| YeungNLP/ofa-cn-large-muge   | 由官方OFA-CN-Large-MUGE转换而来的权重         | https://huggingface.co/YeungNLP/ofa-cn-large-muge   |
+| calisolo/OFA_huge_image_captioning| Optimized checkpoints for image captioning in the OFA-SYS | https://huggingface.co/calisolo/OFA_huge_image_captioning |
+| calisolo/OFA_huge_NICE_captioning | One fine-tuned checkpoint with good progress when heuristically looked at | https://huggingface.co/calisolo/OFA_huge_NICE_captioning |
+| submission 3 checkpoint       | need to be reproduced with following train_args          |       |
+| submission 4 checkpoint    | need to be reproduced with following train_args        |     |
+| Ensemble 1 checkpoint   | need to be reproduced with following train_args         |  |
 
 
-## 프로젝트 세부정보
+## Project Details
 
-### 리포지토리 구조
-- data: 데이터 저장 (코사인 유사도/ 입력 데이터)
-- images： 입력 이미지 저장 (base64 형식)
+### Repository structure
+- data: Data (Cosine Similarities/ input data/ ground truth validation sets)
+- images： input images (base64 format)
 - component:
-  - ofa:ofa 모델 구조
-  - argument.py：학습 파라미터
+  - ofa:ofa model architecture
+  - argument.py：train parameter
   - datacollator.py
   - dataset.py
-- train_args：학습 파라미터 구성 파일
-- vocab：본 방법론에서 활용하기위한 스페셜 토큰을 추가한 토크나이저
+- train_args：train parameter configuration
+- vocab：tokenizer with 'Levels' token added
+<br>
 
-
-- convert_weight.py：해당 코드베이스에서도 가중치 변환을 제공하고 있었는데 발견하지 못해 미사용 ㅠㅠ
-- generate.py：생성 예시이지만 미사용
+- convert_weight.py：Checkpoint transition/ but didn't found, didn't used   😿😿 
+- generate.py: model generate example/ didn't used
 
 
 ### 데이터셋 소개
@@ -185,9 +181,14 @@ Backbone model
 - [OFA：Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework](https://arxiv.org/pdf/2202.03052.pdf)  
 - [OFA github](https://github.com/OFA-Sys/OFA)
 
+
+![ofa-task](./images/ofa-task.png)
+
 codebase
 - [OFA-Chinese github](https://github.com/yangjianxin1/OFA-Chinese) 
 - [OFA-Chinese detail](https://mp.weixin.qq.com/s/thRbR1i6cZk8zUz3y2mq6g)
 
+### Description of the OFA Chinese
+- The OFA-sys official codebase has a high degree of complexity to be compatible with several experimental configurations. OFA Chinese is a huggingface version of the fine-tuning code that leaves only the core logic.
 
-![ofa-task](./images/ofa-task.png)
+
