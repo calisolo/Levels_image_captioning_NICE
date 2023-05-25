@@ -68,21 +68,8 @@ caption데이터 ，jsonl 형식：
 ```
 
 
-
-### 训练细节
-在训练的时候，使用LiT-tuning（Locked-image Text tuning）的策略，也就是将encoder的权重进行冻结，对decoder的权重进行训练。加载ofa-cn-base预训练权重，使用55w的中文图文对，过滤掉一些坏图，
-batch size=128，开启混合精度训练，warmup step为3000步，学习率为5e-5，使用cosine衰减策略，训练10个epoch，大约42500个step，最终训练loss降到0.47左右。
-
-由于encoder与decoder共享词向量权重，笔者还分别尝试了冻结与不冻结词向量两种训练方式，两者的训练loss的变化趋势如下图所示。可以看到，训练时不冻结词向量权重，模型的收敛速度提升非常显著，
-但相应地也需要更多显存。如果显存不足，在训练时可以冻结词向量，将freeze_word_embed设为true即可。
-![loss](images/train_loss.png)
-
-
-
-## 使用方法
-
-### 运行环境
-python==3.8、transformers==4.20.0、torch==1.12.0
+### environment
+transformers==4.20.0
 
 
 ### 训练脚本
