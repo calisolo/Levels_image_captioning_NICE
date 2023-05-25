@@ -80,43 +80,10 @@ CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.js
 CUDA_VISIBLE_DEVICES=0 nohup python train.py --train_args_file train_args/train_ofa.json &
 ```
 
-### 配置训练参数
-在train_args/train_ofa.json中按需配置训练参数，参数说明如下：
-- output_dir:训练输出路径
-- model_name_or_path：预训练权重名称或路径
-- train_caption_file：训练caption路径
-- train_image_file：训练图片路径
-- test_caption_file：测试caption路径
-- test_image_file：测试图片路径
-- freeze_encoder：训练时，是否冻结encoder参数
-- freeze_word_embed：训练时，是否冻结词向量参数
-- num_train_epochs：训练轮次
-- max_steps：训练的最大步数，会覆盖num_train_epochs的效果
-- per_device_train_batch_size：训练的batch size
-- per_device_eval_batch_size：推理的batch size
-- learning_rate：学习率
-- max_seq_length：文本的最大长度
-- logging_steps：多少步打印一次训练日志
-- save_steps：多少步保存一次checkpoint
-- save_total_limit：最多保存多少个checkpoint
-- lr_scheduler_type：学习率的变化策略
-- warmup_steps：warmup的步数，会覆盖warmup_ratio的效果
-- warmup_ratio：warmup的比例
-- gradient_accumulation_steps：梯度累计的步数
-- optim：优化器
-- seed：随机种子
-- fp16：是否使用混合精度进行训练，最好设为True，可以使用更大的batch size，并且加快训练速度
-- no_cuda：是否不使用GPU
-- dataloader_num_workers：使用多少个线程加载训练数据，根据自己的机器情况，尽量设大一些，否则训练瓶颈会卡在读图片上
 
+## Cherry picked examples
 
-
-## 效果展示
-下列测试图片均为从电商网站中随机下载的，并且测试了不同模型权重的生成效果。从生成效果来看，总结如下：
-- ofa-cn-base-muge是笔者将由官方fairseq版本的OFA-CN-Base-MUGE权重转换而来的，其生成效果非常不错。证明了fairseq权重转换为transformers权重的逻辑的有效性。
-- ofa-cn-base-muge-v2是笔者使用ofa-cn-base进行finetune得到的，其效果远远优于ofa-cn-base，并且与ofa-cn-base-muge的效果旗鼓相当，证明了本项目的训练逻辑的有效性。
-
-| 图片                                          | ofa-cn-base-muge-v2(ours) |  ofa-cn-base   |  ofa-cn-base-muge  |
+| example                                          | submission 3 |  submission 4    |  submission 5 |
 |---------------------------------------------|:-------------------------:|:---:|:------------------:|
 | <img src="./images/test/earrings.jpg" width="160"> |        精致小耳钉，点缀你的美        |  耳環,夾式耳環espritoutlet台北耳飾,耳環   |   小耳钉，让你的耳朵更有气质    |
 | <img src="./images/test/necklace.jpg" width="160" > |      精致锁骨链，点缀颈间的小性感       |  项链项链设计矢量矢量图素材第1页   |   精致锁骨链，彰显女性优雅气质   |
@@ -143,23 +110,6 @@ CUDA_VISIBLE_DEVICES=0 nohup python train.py --train_args_file train_args/train_
 | <img src="./images/test/shoes.jpg" width="160" > |       时尚运动鞋，让你运动更自信       |  特步专柜款男子夏季跑鞋17新品气垫减震   |  舒适跑步鞋，让你轻松跑出好身材   |
 | <img src="./images/test/denim-jacket.jpg" width="160" > |      时尚潮流资讯，型男把妹约会夹克      |  男童外套春秋季新款韩版儿童夹克中大童   |   时尚潮流，型男原创休闲衬衫    |
 | <img src="./images/test/hoodie.jpg" width="160" > |      时尚灵感指南，型男原创街拍卫衣      |  男士长袖t恤秋季新款韩版潮流宽松圆领   |  时尚灵感指南，型男原创潮流卫衣   |
-
-
-
-
-## 附录
-
-### 权重转换
-笔者下载了transformers版本的ofa-base英文权重，以及fairseq版本的中文权重。将两者的权重名称打印出来，进行一一对应，然后将fairseq的权重名称修改成transformers的权重名称。
-详细逻辑可见convert_weights.py脚本
-
-### Tokenizer转换细节
-经过阅读分析OFA官方代码，笔者得到了以下几个结论：
-- transformers版的官方代码中，实现了OFATokenizer，该tokenizer本质是一个bpe，并且仅支持处理英文。
-- 对于中文模型，官方使用bert tokenizer，并且在bert的原始词表的基础上添加了若干个特殊token，包括\<s>、\<pad>、\</s>、\<unk>、\<mask>、\<code_0>\~\<code_8191>、\<bin_0>\~\<bin_999>等。
-
-经过处理，笔者最终得到了一份有效的中文词表配置，存放在vocab目录下，直接使用BertTokenizer加载即可。
-
 
 
 ## Reference
