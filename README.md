@@ -1,13 +1,20 @@
 # Levels
 # Abstract
 
-This project was transformed based on OFA Chinese and challenged the NICE (New frontiers for zero-shot Image Captioning Evaluation) challenge 2023, resulting in Track2 2nd/ Total 4th. (CVPR 2023 Workshop)
+This project was transformed based on OFA Chinese and challenged the **NICE (New frontiers for zero-shot Image Captioning Evaluation)** challenge 2023, resulting in **Track2 2nd/ Total 4th**. (**CVPR 2023 Workshop**)
 NICE is an Image Captioning Task, which is a task to create appropriate captions for each photo provided by ShutterStock.
 
-본 프로젝트는 OFA Chinese를 기반으로 변형하여 NICE(New frontiers for zero-shot Image Captioning Evaluation) challenge 2023 를 도전하여 Track2 2nd/ Total 4th의 성과를 내었습니다. (CVPR 2023 Workshop)
+본 프로젝트는 OFA Chinese를 기반으로 변형하여 **NICE(New frontiers for zero-shot Image Captioning Evaluation)** challenge 2023 를 도전하여 **Track2 2nd/ Total 4th**의 성과를 내었습니다. (**CVPR 2023 Workshop**)
 NICE는 Image Captioning Task 로, ShutterStock 사에서 제공한 각 사진에 알맞는 캡션을 생성하는 과제입니다.
 
 Editing :joy_cat::joy_cat::joy_cat:
+
+# Quick Start 
+
+Utilize preprocessed cosine similarities, trained models, etc.
+You can check the creating a submission, output captions of each photo, input data format through model inferencing procedure.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/NICE_quickstart.ipynb)
+
 
 ## Reference
 
