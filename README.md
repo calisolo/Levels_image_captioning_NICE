@@ -16,18 +16,6 @@ You can check the submission creating procedure, output captions of each photo, 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/NICE_quickstart.ipynb)
 
 
-## Reference
-
-Backbone model 
-- [OFA：Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework](https://arxiv.org/pdf/2202.03052.pdf)  
-- [OFA github](https://github.com/OFA-Sys/OFA)
-
-codebase
-- [OFA-Chinese github](https://github.com/yangjianxin1/OFA-Chinese) 
-- [OFA-Chinese detail](https://mp.weixin.qq.com/s/thRbR1i6cZk8zUz3y2mq6g)
-
-
-![ofa-task](./images/ofa-task.png)
 
 ### OFA Chinese 프로젝트 관련 설명
 - OFA-sys 공식 코드베이스에는 여러 실험적 구성과 호환하기 위해 복잡도가 높습니다. 여기에 핵심논리만을 남긴 미세조정 코드를 huggingface 버전으로 구현한 것이 OFA Chinese입니다.
@@ -100,41 +88,6 @@ batch size=128，开启混合精度训练，warmup step为3000步，学习率为
 ### 运行环境
 python==3.8、transformers==4.20.0、torch==1.12.0
 
-### Quick Start
-使用如下脚本，就可成功加载笔者分享的预训练权重，对图片和文本进行预处理，并且得到模型的输出
-
-```python
-from component.ofa.modeling_ofa import OFAModelForCaption
-from torchvision import transforms
-from PIL import Image
-from transformers import BertTokenizerFast
-
-model_name_or_path = 'YeungNLP/ofa-cn-base-muge-v2'
-image_file = './images/test/lipstick.jpg'
-# 加载预训练模型权重
-model = OFAModelForCaption.from_pretrained(model_name_or_path)
-tokenizer = BertTokenizerFast.from_pretrained(model_name_or_path)
-
-# 定义图片预处理逻辑
-mean, std = [0.5, 0.5, 0.5], [0.5, 0.5, 0.5]
-resolution = 256
-patch_resize_transform = transforms.Compose([
-        lambda image: image.convert("RGB"),
-        transforms.Resize((resolution, resolution), interpolation=Image.BICUBIC),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=mean, std=std)
-    ])
-
-txt = '图片描述了什么?'
-inputs = tokenizer([txt], return_tensors="pt").input_ids
-# 加载图片，并且预处理
-img = Image.open(image_file)
-patch_img = patch_resize_transform(img).unsqueeze(0)
-
-# 生成caption
-gen = model.generate(inputs, patch_images=patch_img, num_beams=5, no_repeat_ngram_size=3)
-print(tokenizer.batch_decode(gen, skip_special_tokens=True))
-```
 
 ### 训练脚本
 ```
@@ -226,3 +179,15 @@ CUDA_VISIBLE_DEVICES=0 nohup python train.py --train_args_file train_args/train_
 
 
 
+## Reference
+
+Backbone model 
+- [OFA：Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework](https://arxiv.org/pdf/2202.03052.pdf)  
+- [OFA github](https://github.com/OFA-Sys/OFA)
+
+codebase
+- [OFA-Chinese github](https://github.com/yangjianxin1/OFA-Chinese) 
+- [OFA-Chinese detail](https://mp.weixin.qq.com/s/thRbR1i6cZk8zUz3y2mq6g)
+
+
+![ofa-task](./images/ofa-task.png)
