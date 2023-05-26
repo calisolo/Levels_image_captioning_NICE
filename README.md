@@ -29,18 +29,21 @@ You can check the submission creating procedure, output captions of each photo, 
 
 ### 0. Dataset characteristics & Preprocess
 When looking at the groundtruth caption, there were many captions that explained the **format of the photo in the prefix** or described a **specific location**.
-To identify trends, manually tagging was performed on 5000 datasets as follows. (6-8 hours)
+To identify trends, manually tagging was performed on 5000 datasets as follows. (6-8 hours) 👷‍♂️👷‍♂️
 |         caption_gt            | photo style prefix                                       | location at the caption                             |
 |------------------------------|-----------------------------------------------------------|-----------------------------------------------------|
 | Close up low angle view of Bicycles leaning against tree in wood| Close up low angle view of | NULL |
 | View of town and bridge spanning river on sunny day Jarnac and the Charente river West Central France | View of | Jarnac and the Charente river West Central France|
 | Sun beach and ocean at Gerrans Bay Cornwall United Kingdom | NULL |   Gerrans Bay Cornwall United Kingdom  |
 
+[original validation set](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/data/nice-val-5k.csv) <br>
+[tagged validation set](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/data/shotstyle_location%20worked.csv)
  
- 
- 
- 
- 
+Hypothesis
+1. Photos provided by the same supplier can be inferred through the information inherent in the image, and the subject/photo/caption method will be similar.
+2. Public id is shutterstock's upload number, and it is highly likely that the photos uploaded consecutively have the same supplier.
+Approach
+- Learning by using similarity between photos and public id provided in Validation_set
  
 
 ### Model Checkpoints
