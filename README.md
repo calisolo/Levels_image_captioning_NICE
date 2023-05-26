@@ -14,7 +14,7 @@ Editing :joy_cat::joy_cat::joy_cat:
 # Quick Start 
 
 Utilize preprocessed cosine similarities, trained models, etc.<br>
-You can check the submission creating procedure, output captions of each photo, input data format looking through model inferencing code below.<br><br>
+You can check the submission creating procedure, output captions of each photo, input data format looking through model inferencing code below.<br>
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/NICE_quickstart.ipynb)
 
