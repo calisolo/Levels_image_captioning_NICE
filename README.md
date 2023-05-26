@@ -1,4 +1,6 @@
 # Levels
+Normalize importance of hints seen by model to natural language token 'Levels'
+
 # Abstract
 
 This project was transformed based on OFA Chinese and challenged the **NICE (New frontiers for zero-shot Image Captioning Evaluation)** challenge 2023, resulting in **Track2 2nd/ Total 4th**. (**CVPR 2023 Workshop**)
