@@ -103,7 +103,7 @@ CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.js
 
 
 ### Model Checkpoints
-|         Model             | introduction                                              | Link                                               |
+|         Model             |                   introduction                                   | Link                         |
 |------------------------------|-----------------------------------------------------------|-----------------------------------------------------|
 | calisolo/OFA_huge_image_captioning| Optimized checkpoints for image captioning in the OFA-SYS | https://huggingface.co/calisolo/OFA_huge_image_captioning |
 | calisolo/OFA_huge_NICE_captioning | One fine-tuned checkpoint with good progress when heuristically looked at | https://huggingface.co/calisolo/OFA_huge_NICE_captioning |
@@ -115,9 +115,9 @@ CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.js
 
 At each checkpoint, the caption results for 21377 photos are obtained and compared, and the final result is selected by voting based on the cosine similarity of natural language.
 
-### Cherry picked examples
+### Cherry picked results
 
-| example                                          | submission 3 |  submission 4    |  submission 5 |
+| example                                          | submission 3 |  submission 4    |  submission 5 (ensembled answer) |
 |---------------------------------------------|:-------------------------:|:---:|:------------------:|
 | <img src="./images/test/earrings.jpg" width="160"> |        精致小耳钉，点缀你的美        |  耳環,夾式耳環espritoutlet台北耳飾,耳環   |   小耳钉，让你的耳朵更有气质    |
 | <img src="./images/test/necklace.jpg" width="160" > |      精致锁骨链，点缀颈间的小性感       |  项链项链设计矢量矢量图素材第1页   |   精致锁骨链，彰显女性优雅气质   |
