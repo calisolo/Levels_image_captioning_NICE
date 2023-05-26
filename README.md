@@ -83,8 +83,7 @@ image data，tsv format (img_id, '\t', img_content)（base64 format）：
 1813180760 /9j/4AAQSkZJRgABAQAAAQABAAD/2w...
 1578946151 /9j/4AAQSkZJRgABAQAAAQABAAD/2w...
 ```
-
-**Preprocess** <br>
+<br>
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/OFA_prepare_data.ipynb)<br>
 
 ### 1. Make Tokenizer and Train at Colab
