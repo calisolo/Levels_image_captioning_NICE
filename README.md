@@ -48,21 +48,21 @@ Hypothesis
 => Learning by using similarity between photos and public id provided in Validation_set
  
 I use the NICE validation dataset as training data. The dataset consists of two files: caption data and image data. <br>
-The training data consists of validation data(5000 cases) and the test data (21377 cases), and caption data processed through pre-processing to calculate cosine similarity is used as input to provide hints to the model.
+The training data consists of NICE validation data(5000 cases) and the test data consists of NICE test data (21377 cases). <br>
+Caption data stores hints constructed based on id similarity and image cosine similarity, and **levels** meaning the strength of the hint.
 
 caption data ，jsonl format：
 ```
-{"image_id": "007c720f1d8c04104096aeece425b2d5", "text": ["性感名媛蕾丝裙，尽显优雅撩人气质", "衣千亿，时尚气质名媛范", "80后穿唯美蕾丝裙，绽放优雅与性感", "修身连衣裙，女人就该如此优雅和美丽", "千亿包臀连衣裙，显出曼妙身姿", "衣千亿包臀连衣裙，穿的像仙女一样美", "衣千亿连衣裙，令人夺目光彩", "奔四女人穿气质连衣裙，高雅名媛范", "V领包臀连衣裙，青春少女感", "衣千亿包臀连衣裙，穿出曼妙身姿提升气质"]}
-{"image_id": "00809abd7059eeb94888fa48d9b0a9d8", "text": ["藕粉色的颜色搭配柔软舒适的冰丝面料，满满的时尚感，大领设计也超级好看，露出性感锁骨线条，搭配宽腰带设计，优雅温柔又有气质", "传承欧洲文化精品女鞋，引领风尚潮流设计", "欧洲站风格女鞋，演绎个性时尚装扮", "高品质原创凉鞋，气质与华丽引领春夏", "欧洲风格站艾莎女鞋经典款式重新演绎打造新一轮原创单品优雅鞋型尽显女人的柔美，十分知性大方。随意休闲很显瘦，不仅显高挑还展现纤细修长的腿型，休闲又非常潮流有范。上脚舒适又百搭。", "阳春显高穿搭，气质单鞋不可缺少", "冰丝连衣裙，通勤优雅范", "一身粉色穿搭，梦幻迷人", "艾莎女性，浪漫摩登，演绎角色转换", "超时尚夏季凉鞋，一直“走”在时尚的前沿"]}
+{"image_id": "1813180760", "text": ["A vertical shot of sunset on a beach"], "encoder_prefix": "[cosHint lv3][diffHint lv1]A landscape shot of sunset at horizon over ocean[cosHint lv3][diffHint lv1]Sun beach and ocean at Gerrans Bay Cornwall United Kingdom[cosHint lv3][diffHint lv1]Vertical shot of a beautiful sunset over the sea[cosHint lv3][diffHint lv1]Sunrise near Los Islotes Baja California Sur Mexico"}
+{"image_id": "1578946151", "text": ["A woman relaxing in a deck chair"], "encoder_prefix": "[cosHint lv3][diffHint lv2]A woman relaxing in a deck chair[cosHint lv3][diffHint lv1]Wide shot of a female in swimwear walking on the beach with an equipment bucket[cosHint lv3][diffHint lv1]A man meditating by a pool[cosHint lv2][diffHint lv1]Vertical shot of a woman in swimwear standing in water at the shore of a sunny beach"}
 ```
 
-图片数据，tsv格式(img_id, '\t', img_content)（base64编码）：
+image data，tsv format (img_id, '\t', img_content)（base64 format）：
 ```
-007c720f1d8c04104096aeece425b2d5 /9j/4AAQSkZJRgABAgAAAQA...
-00809abd7059eeb94888fa48d9b0a9d8 /9j/2wCEAAEBAQEBAQEBAQE...
+1813180760 /9j/4AAQSkZJRgABAQAAAQABAAD/2w...
+1578946151 /9j/4AAQSkZJRgABAQAAAQABAAD/2w...
 ```
 
-final input data form
 
 
 
