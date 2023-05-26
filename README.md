@@ -84,7 +84,7 @@ image data，tsv format (img_id, '\t', img_content)（base64 format）：
 1578946151 /9j/4AAQSkZJRgABAQAAAQABAAD/2w...
 ```
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/OFA_prepare_data.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/OFA_prepare_data.ipynb)
 <br>
 
 ## 1. Make Tokenizer and Train at Colab
@@ -99,7 +99,7 @@ transformers==4.20.0
 ```
 CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.json
 ```
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/OFA_HF.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/OFA_HF.ipynb)
 
 
 ### Model Checkpoints
@@ -114,6 +114,10 @@ CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.js
 ## 2. Results analysis and ensemble
 
 At each checkpoint, the caption results for 21377 photos are obtained and compared, and the final result is selected by voting based on the cosine similarity of natural language.
+
+you can check the results in every checkpoints<br>
+
+[![Open In Colab](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/data_viewer.ipynb)
 
 ### Cherry picked results
 
