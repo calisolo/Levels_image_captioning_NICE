@@ -89,6 +89,17 @@ image data，tsv format (img_id, '\t', img_content)（base64 format）：
 
 ### 1. Make Tokenizer and Train at Colab
 
+Create a tokenizer that adds special tokens representing the strength of the hint as levels.<br>
+After adjusting 'train_args', put the picture and hint level into the encoder. Feed the image caption output into the decoder and start training to predict captions.
+
+### environment
+transformers==4.20.0
+
+### training script
+```
+CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.json
+```
+
 
 ### Model Checkpoints
 |         Model             | introduction                                              | Link                                               |
@@ -100,7 +111,7 @@ image data，tsv format (img_id, '\t', img_content)（base64 format）：
 | Ensemble 1 checkpoint   | need to be reproduced with following train_args         |  |
 
 
-## Project Details
+## Code Details
 
 ### Repository structure
 - data: Data (Cosine Similarities/ input data/ ground truth validation sets)
@@ -121,17 +132,7 @@ image data，tsv format (img_id, '\t', img_content)（base64 format）：
 
 
 
-### environment
-transformers==4.20.0
 
-
-### 训练脚本
-```
-CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.json
-
-后台运行：
-CUDA_VISIBLE_DEVICES=0 nohup python train.py --train_args_file train_args/train_ofa.json &
-```
 
 
 ## Cherry picked examples
