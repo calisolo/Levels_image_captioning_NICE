@@ -14,7 +14,8 @@ Editing :joy_cat::joy_cat::joy_cat:
 # Quick Start 
 
 Utilize preprocessed cosine similarities, trained models, etc.<br>
-You can check the submission creating procedure, output captions of each photo, input data format looking through model inferencing code below.<br>
+You can check the submission creating procedure, output captions of each photo, input data format looking through model inferencing code below.<br><br>
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/NICE_quickstart.ipynb)
 
 
@@ -52,7 +53,7 @@ The training data consists of NICE validation data(5000 cases) and the test data
 Caption data stores hints constructed based on id similarity and image cosine similarity, and **levels** meaning the strength of the hint.
 
 <details>
-<summary>How to make encoder_prefix (Input data format using Levels)</summary>
+<summary>(click!)How to make encoder_prefix (Input data format using Levels)</summary>
 <br><br>
 Based on the degree of similarity in the encoder part of the model, i tried to provide captions of several similar photos and hint levels using special tokens to show how similar the corresponding photos and the querying photo are.
 Below are the criteria for judging the hint 'Levels'.
