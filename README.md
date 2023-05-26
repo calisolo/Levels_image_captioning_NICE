@@ -1,7 +1,7 @@
 # Levels
 Segment importance of hints seen by model to natural language token 'Levels'
 
-# Abstract
+## Abstract
 
 This project was transformed based on OFA Chinese and challenged the **NICE (New frontiers for zero-shot Image Captioning Evaluation)** challenge 2023, resulting in **Track2 2nd/ Total 4th**. (**CVPR 2023 Workshop**)
 NICE is an Image Captioning Task, which is a task to create appropriate captions for each photo provided by ShutterStock. Based on the intuition that the tone of caption in the NICE dataset feels unique, it was approached from the perspective of controlled dialogue generation.
@@ -11,7 +11,7 @@ NICE는 Image Captioning Task 로, ShutterStock 사에서 제공한 각 사진�
 
 Editing :joy_cat::joy_cat::joy_cat:
 
-# Quick Start 
+## Quick Start 
 
 Utilize preprocessed cosine similarities, trained models, etc.<br>
 You can check the submission creating procedure, output captions of each photo, input data format looking through model inferencing code below.<br>
@@ -28,9 +28,9 @@ You can check the submission creating procedure, output captions of each photo, 
  fairseq style -> hf style
  
  
-## Reproduce from scratch
+# Reproduce from scratch
 
-### 0. Dataset characteristics & Preprocess
+## 0. Dataset characteristics & Preprocess
 When looking at the groundtruth caption, there were many captions that explained the **format of the photo in the prefix** or described a **specific location**.
 To identify trends, manually tagging was performed on 5000 cases as follows. (6-8 hours) 👷‍♂️👷‍♂️
 |         caption_gt            | photo style prefix                                       | location at the caption                             |
@@ -83,11 +83,11 @@ image data，tsv format (img_id, '\t', img_content)（base64 format）：
 1813180760 /9j/4AAQSkZJRgABAQAAAQABAAD/2w...
 1578946151 /9j/4AAQSkZJRgABAQAAAQABAAD/2w...
 ```
-**preprocess** <br>
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/OFA_prepare_data.ipynb)
 <br>
 
-### 1. Make Tokenizer and Train at Colab
+## 1. Make Tokenizer and Train at Colab
 
 Create a tokenizer that adds special tokens representing the strength of the hint as levels.<br>
 After adjusting 'train_args', put the picture and hint level into the encoder. Feed the image caption output into the decoder and start training to predict captions.
@@ -99,6 +99,7 @@ transformers==4.20.0
 ```
 CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.json
 ```
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/OFA_HF.ipynb)
 
 
 ### Model Checkpoints
@@ -110,32 +111,11 @@ CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.js
 | submission 4 checkpoint    | need to be reproduced with following train_args        |     |
 | Ensemble 1 checkpoint   | need to be reproduced with following train_args         |  |
 
+## 2. Results analysis and ensemble
 
-## Code Details
+At each checkpoint, the caption results for 21377 photos are obtained and compared, and the final result is selected by voting based on the cosine similarity of natural language.
 
-### Repository structure
-- data: Data (Cosine Similarities/ input data/ ground truth validation sets)
-- images： input images (base64 format)
-- component:
-  - ofa:ofa model architecture
-  - argument.py：train parameter
-  - datacollator.py
-  - dataset.py
-- train_args：train parameter configuration
-- vocab：tokenizer with 'Levels' token added
-<br>
-
-- convert_weight.py：Checkpoint transition/ but didn't found, didn't used   😿😿 
-- generate.py: model generate example/ didn't used
-
-
-
-
-
-
-
-
-## Cherry picked examples
+### Cherry picked examples
 
 | example                                          | submission 3 |  submission 4    |  submission 5 |
 |---------------------------------------------|:-------------------------:|:---:|:------------------:|
@@ -164,6 +144,26 @@ CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.js
 | <img src="./images/test/shoes.jpg" width="160" > |       时尚运动鞋，让你运动更自信       |  特步专柜款男子夏季跑鞋17新品气垫减震   |  舒适跑步鞋，让你轻松跑出好身材   |
 | <img src="./images/test/denim-jacket.jpg" width="160" > |      时尚潮流资讯，型男把妹约会夹克      |  男童外套春秋季新款韩版儿童夹克中大童   |   时尚潮流，型男原创休闲衬衫    |
 | <img src="./images/test/hoodie.jpg" width="160" > |      时尚灵感指南，型男原创街拍卫衣      |  男士长袖t恤秋季新款韩版潮流宽松圆领   |  时尚灵感指南，型男原创潮流卫衣   |
+
+
+
+## Code Details
+
+### Repository structure
+- data: Data (Cosine Similarities/ input data/ ground truth validation sets)
+- images： input images (base64 format)
+- component:
+  - ofa:ofa model architecture
+  - argument.py：train parameter
+  - datacollator.py
+  - dataset.py
+- train_args：train parameter configuration
+- vocab：tokenizer with 'Levels' token added
+<br>
+
+- convert_weight.py：Checkpoint transition/ but didn't found, didn't used   😿😿 
+- generate.py: model generate example/ didn't used
+
 
 
 ## Reference
