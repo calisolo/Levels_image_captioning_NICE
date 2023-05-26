@@ -42,8 +42,8 @@ To identify trends, manually tagging was performed on 5000 datasets as follows. 
 Hypothesis
 1. Photos provided by the same supplier can be inferred through the information inherent in the image, and the subject/photo/caption method will be similar.
 2. Public id is shutterstock's upload number, and it is highly likely that the photos uploaded consecutively have the same supplier.
-Approach
-- Learning by using similarity between photos and public id provided in Validation_set
+
+=> Learning by using similarity between photos and public id provided in Validation_set
  
 
 ### Model Checkpoints
