@@ -31,7 +31,7 @@ You can check the submission creating procedure, output captions of each photo, 
 
 ### 0. Dataset characteristics & Preprocess
 When looking at the groundtruth caption, there were many captions that explained the **format of the photo in the prefix** or described a **specific location**.
-To identify trends, manually tagging was performed on 5000 datasets as follows. (6-8 hours) 👷‍♂️👷‍♂️
+To identify trends, manually tagging was performed on 5000 cases as follows. (6-8 hours) 👷‍♂️👷‍♂️
 |         caption_gt            | photo style prefix                                       | location at the caption                             |
 |------------------------------|-----------------------------------------------------------|-----------------------------------------------------|
 | Close up low angle view of Bicycles leaning against tree in wood| Close up low angle view of | NULL |
@@ -47,6 +47,24 @@ Hypothesis
 
 => Learning by using similarity between photos and public id provided in Validation_set
  
+I use the NICE validation dataset as training data. The dataset consists of two files: caption data and image data. <br>
+The training data consists of validation data(5000 cases) and the test data (21377 cases), and caption data processed through pre-processing to calculate cosine similarity is used as input to provide hints to the model.
+
+caption data ，jsonl format：
+```
+{"image_id": "007c720f1d8c04104096aeece425b2d5", "text": ["性感名媛蕾丝裙，尽显优雅撩人气质", "衣千亿，时尚气质名媛范", "80后穿唯美蕾丝裙，绽放优雅与性感", "修身连衣裙，女人就该如此优雅和美丽", "千亿包臀连衣裙，显出曼妙身姿", "衣千亿包臀连衣裙，穿的像仙女一样美", "衣千亿连衣裙，令人夺目光彩", "奔四女人穿气质连衣裙，高雅名媛范", "V领包臀连衣裙，青春少女感", "衣千亿包臀连衣裙，穿出曼妙身姿提升气质"]}
+{"image_id": "00809abd7059eeb94888fa48d9b0a9d8", "text": ["藕粉色的颜色搭配柔软舒适的冰丝面料，满满的时尚感，大领设计也超级好看，露出性感锁骨线条，搭配宽腰带设计，优雅温柔又有气质", "传承欧洲文化精品女鞋，引领风尚潮流设计", "欧洲站风格女鞋，演绎个性时尚装扮", "高品质原创凉鞋，气质与华丽引领春夏", "欧洲风格站艾莎女鞋经典款式重新演绎打造新一轮原创单品优雅鞋型尽显女人的柔美，十分知性大方。随意休闲很显瘦，不仅显高挑还展现纤细修长的腿型，休闲又非常潮流有范。上脚舒适又百搭。", "阳春显高穿搭，气质单鞋不可缺少", "冰丝连衣裙，通勤优雅范", "一身粉色穿搭，梦幻迷人", "艾莎女性，浪漫摩登，演绎角色转换", "超时尚夏季凉鞋，一直“走”在时尚的前沿"]}
+```
+
+图片数据，tsv格式(img_id, '\t', img_content)（base64编码）：
+```
+007c720f1d8c04104096aeece425b2d5 /9j/4AAQSkZJRgABAgAAAQA...
+00809abd7059eeb94888fa48d9b0a9d8 /9j/2wCEAAEBAQEBAQEBAQE...
+```
+
+final input data form
+
+
 
 ### Model Checkpoints
 |         Model             | introduction                                              | Link                                               |
@@ -76,21 +94,7 @@ Hypothesis
 - generate.py: model generate example/ didn't used
 
 
-### 데이터셋 소개
-작성자는 NICE validation dataset을 훈련 데이터로 사용합니다.  데이터셋은 캡션 데이터와 이미지 데이터 두가지 파일로 구성됩니다.  
-훈련 데이터는 (5000건)   테스트 데이터는 (21377건)으로 구성되어 있으며, 모델에 힌트를 제공하기 위하여 코사인 유사도를 계산하는 전처리를 거칩니다.
 
-caption데이터 ，jsonl 형식：
-```
-{"image_id": "007c720f1d8c04104096aeece425b2d5", "text": ["性感名媛蕾丝裙，尽显优雅撩人气质", "衣千亿，时尚气质名媛范", "80后穿唯美蕾丝裙，绽放优雅与性感", "修身连衣裙，女人就该如此优雅和美丽", "千亿包臀连衣裙，显出曼妙身姿", "衣千亿包臀连衣裙，穿的像仙女一样美", "衣千亿连衣裙，令人夺目光彩", "奔四女人穿气质连衣裙，高雅名媛范", "V领包臀连衣裙，青春少女感", "衣千亿包臀连衣裙，穿出曼妙身姿提升气质"]}
-{"image_id": "00809abd7059eeb94888fa48d9b0a9d8", "text": ["藕粉色的颜色搭配柔软舒适的冰丝面料，满满的时尚感，大领设计也超级好看，露出性感锁骨线条，搭配宽腰带设计，优雅温柔又有气质", "传承欧洲文化精品女鞋，引领风尚潮流设计", "欧洲站风格女鞋，演绎个性时尚装扮", "高品质原创凉鞋，气质与华丽引领春夏", "欧洲风格站艾莎女鞋经典款式重新演绎打造新一轮原创单品优雅鞋型尽显女人的柔美，十分知性大方。随意休闲很显瘦，不仅显高挑还展现纤细修长的腿型，休闲又非常潮流有范。上脚舒适又百搭。", "阳春显高穿搭，气质单鞋不可缺少", "冰丝连衣裙，通勤优雅范", "一身粉色穿搭，梦幻迷人", "艾莎女性，浪漫摩登，演绎角色转换", "超时尚夏季凉鞋，一直“走”在时尚的前沿"]}
-```
-
-图片数据，tsv格式(img_id, '\t', img_content)（base64编码）：
-```
-007c720f1d8c04104096aeece425b2d5 /9j/4AAQSkZJRgABAgAAAQA...
-00809abd7059eeb94888fa48d9b0a9d8 /9j/2wCEAAEBAQEBAQEBAQE...
-```
 
 
 ### environment
