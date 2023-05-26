@@ -53,7 +53,7 @@ Caption data stores hints constructed based on id similarity and image cosine si
 
 <details>
 <summary>How to make encoder_prefix (Input data format using Levels)</summary>
-
+<br><br>
 Based on the degree of similarity in the encoder part of the model, i tried to provide a caption of several similar photos and hint levels using a special token to show how similar the corresponding photo and the querying photo are.
 Below are the criteria for judging the hint **Levels**.
 
@@ -68,7 +68,7 @@ Below are the criteria for judging the hint **Levels**.
 | [diffHint lv1] | The public_id difference between the photos is large  | id difference ≥ 10000 |
  
 The above hints were extracted from similar photos obtained based on cosine similarity, and the tagged shotstyles and locations were extracted from neighboring photos obtained based on id_difference.
- 
+<br><br>
 </details>
 
 caption data ，jsonl format：
