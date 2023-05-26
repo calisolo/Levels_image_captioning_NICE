@@ -2,10 +2,10 @@
 # Abstract
 
 This project was transformed based on OFA Chinese and challenged the **NICE (New frontiers for zero-shot Image Captioning Evaluation)** challenge 2023, resulting in **Track2 2nd/ Total 4th**. (**CVPR 2023 Workshop**)
-NICE is an Image Captioning Task, which is a task to create appropriate captions for each photo provided by ShutterStock.
+NICE is an Image Captioning Task, which is a task to create appropriate captions for each photo provided by ShutterStock. Based on the intuition that the tone of caption in the NICE dataset feels unique, it was approached from the perspective of controlled dialogue generation.
 
 본 프로젝트는 OFA Chinese를 기반으로 변형하여 **NICE(New frontiers for zero-shot Image Captioning Evaluation)** challenge 2023 를 도전하여 **Track2 2nd/ Total 4th**의 성과를 내었습니다. (**CVPR 2023 Workshop**)
-NICE는 Image Captioning Task 로, ShutterStock 사에서 제공한 각 사진에 알맞는 캡션을 생성하는 과제입니다.
+NICE는 Image Captioning Task 로, ShutterStock 사에서 제공한 각 사진에 알맞는 캡션을 생성하는 과제입니다. NICE dataset 에서 나타나는 말투가 특이하게 느껴진다는 직관을 바탕으로, 이를 controlled dialogue generation 관점에서 접근하였습니다.
 
 Editing :joy_cat::joy_cat::joy_cat:
 
@@ -19,9 +19,29 @@ You can check the submission creating procedure, output captions of each photo, 
 
 ## Main task
 - Since this approach is a methodology that connects the features of image captions with well-trained image encoder features, we utilized the open license model OFA, which has proven high performance.
+- I wanted to create and train normalized hint level tokens so that the model could understand them.
 - model checkpoint transition from fairseq style to huggingface style checkpoint, I refer to the code below and give credit.
 - [Checkpoint transition](https://colab.research.google.com/drive/1LLJewY92LXdeug5m_ceMUHdlqrRQwSQJ?usp=sharing)
  fairseq style -> hf style
+ 
+ 
+## Reproduce from scratch
+
+### 0. Dataset characteristics & Preprocess
+When looking at the groundtruth caption, there were many captions that explained the **format of the photo in the prefix** or described a **specific location**.
+To identify trends, manually tagging was performed on 5000 datasets as follows. (6-8 hours)
+|         caption_gt            | photo style prefix                                       | location at the caption                             |
+|------------------------------|-----------------------------------------------------------|-----------------------------------------------------|
+| Close up low angle view of Bicycles leaning against tree in wood| Close up low angle view of | NULL |
+| View of town and bridge spanning river on sunny day Jarnac and the Charente river West Central France | View of | Jarnac and the Charente river West Central France|
+| Sun beach and ocean at Gerrans Bay Cornwall United Kingdom | NULL |   Gerrans Bay Cornwall United Kingdom  |
+
+ 
+ 
+ 
+ 
+ 
+ 
 
 ### Model Checkpoints
 |         Model             | introduction                                              | Link                                               |
