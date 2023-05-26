@@ -117,7 +117,7 @@ At each checkpoint, the caption results for 21377 photos are obtained and compar
 
 you can check the results in every checkpoints<br>
 
-[![Open In Colab](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/data_viewer.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/data_viewer.ipynb)
 
 ### Cherry picked results
 
