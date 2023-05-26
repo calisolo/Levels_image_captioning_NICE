@@ -54,7 +54,7 @@ Caption data stores hints constructed based on id similarity and image cosine si
 <details>
 <summary>How to make encoder_prefix (Input data format using Levels)</summary>
 <br><br>
-Based on the degree of similarity in the encoder part of the model, i tried to provide a caption of several similar photos and hint levels using a special token to show how similar the corresponding photo and the querying photo are.
+Based on the degree of similarity in the encoder part of the model, i tried to provide captions of several similar photos and hint levels using special tokens to show how similar the corresponding photos and the querying photo are.
 Below are the criteria for judging the hint **Levels**.
 
 |     hint Levels(special tokens)  | Degree of hint effect                               | criterion                     |
