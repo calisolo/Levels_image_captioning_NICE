@@ -51,6 +51,26 @@ I use the NICE validation dataset as training data. The dataset consists of two 
 The training data consists of NICE validation data(5000 cases) and the test data consists of NICE test data (21377 cases). <br>
 Caption data stores hints constructed based on id similarity and image cosine similarity, and **levels** meaning the strength of the hint.
 
+<details>
+<summary>How to make encoder_prefix (Input data format using Levels)</summary>
+
+Based on the degree of similarity in the encoder part of the model, i tried to provide a caption of several similar photos and hint levels using a special token to show how similar the corresponding photo and the querying photo are.
+Below are the criteria for judging the hint **Levels**.
+
+|     hint Levels(special tokens)  | Degree of hint effect                               | criterion                     |
+|------------------------------|-----------------------------------------------------------|-----------------------------------------------------|
+| [cosHint lv4] | Strong hints for nearly identical photos | cosine similarities >0.4 |
+| [cosHint lv3] | Same topic but expected to have different captions | cosine similarities >0.32 |
+| [cosHint lv2] | Similar photos but different captions | cosine similarities >0.29 |
+| [cosHint lv1] | Irrelevant photos | cosine similarities ≤ 0.29 |
+| [diffHint lv3] | The public_id difference between the photos is very small | id difference < 100 |
+| [diffHint lv2] | The public_id difference between the photos is small  | id difference < 10000 |
+| [diffHint lv1] | The public_id difference between the photos is large  | id difference ≥ 10000 |
+ 
+The above hints were extracted from similar photos obtained based on cosine similarity, and the tagged shotstyles and locations were extracted from neighboring photos obtained based on id_difference.
+ 
+</details>
+
 caption data ，jsonl format：
 ```
 {"image_id": "1813180760", "text": ["A vertical shot of sunset on a beach"], "encoder_prefix": "[cosHint lv3][diffHint lv1]A landscape shot of sunset at horizon over ocean[cosHint lv3][diffHint lv1]Sun beach and ocean at Gerrans Bay Cornwall United Kingdom[cosHint lv3][diffHint lv1]Vertical shot of a beautiful sunset over the sea[cosHint lv3][diffHint lv1]Sunrise near Los Islotes Baja California Sur Mexico"}
