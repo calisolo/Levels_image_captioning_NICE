@@ -84,7 +84,8 @@ image data，tsv format (img_id, '\t', img_content)（base64 format）：
 1578946151 /9j/4AAQSkZJRgABAQAAAQABAAD/2w...
 ```
 
-
+Preprocess <br>
+[![Open In Colab](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/OFA_prepare_data.ipynb)
 
 
 ### Model Checkpoints
