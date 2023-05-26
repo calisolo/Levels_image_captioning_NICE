@@ -1,5 +1,5 @@
 # Levels
-Normalize importance of hints seen by model to natural language token 'Levels'
+Segment importance of hints seen by model to natural language token 'Levels'
 
 # Abstract
 
@@ -41,7 +41,7 @@ To identify trends, manually tagging was performed on 5000 cases as follows. (6-
 [original validation set](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/data/nice-val-5k.csv) <br>
 [tagged validation set](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/data/shotstyle_location%20worked.csv)
  
-Hypothesis
+**Hypothesis**
 1. Photos provided by the same supplier can be inferred through the information inherent in the image, and the subject/photo/caption method will be similar.
 2. Public id is shutterstock's upload number, and it is highly likely that the photos uploaded consecutively have the same supplier.
 
@@ -55,7 +55,7 @@ Caption data stores hints constructed based on id similarity and image cosine si
 <summary>How to make encoder_prefix (Input data format using Levels)</summary>
 <br><br>
 Based on the degree of similarity in the encoder part of the model, i tried to provide captions of several similar photos and hint levels using special tokens to show how similar the corresponding photos and the querying photo are.
-Below are the criteria for judging the hint **Levels**.
+Below are the criteria for judging the hint 'Levels'.
 
 |     hint Levels(special tokens)  | Degree of hint effect                               | criterion                     |
 |------------------------------|-----------------------------------------------------------|-----------------------------------------------------|
