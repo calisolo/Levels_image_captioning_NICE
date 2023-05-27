@@ -14,7 +14,7 @@ NICE는 Image Captioning Task 로, ShutterStock 사에서 제공한 각 사진�
 Utilize preprocessed cosine similarities, trained models, etc.<br>
 You can check the submission creating procedure, output captions of each photo, input data format looking through model inferencing code below.<br>
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/NICE_quickstart.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/Levels_quickstart.ipynb) 
 
 
 
@@ -82,7 +82,7 @@ image data，tsv format (img_id, '\t', img_content)（base64 format）：
 1578946151 /9j/4AAQSkZJRgABAQAAAQABAAD/2w...
 ```
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/OFA_prepare_data.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/Levels_prepare_data.ipynb)
 <br>
 
 ## 1. Make Tokenizer and Train at Colab
@@ -97,7 +97,7 @@ transformers==4.20.0
 ```
 CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.json
 ```
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/OFA_HF.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/Levels_train_inference.ipynb)
 
 
 ### Model Checkpoints
@@ -115,7 +115,7 @@ At each checkpoint, the caption results for 21377 photos are obtained and compar
 
 you can check the results in every checkpoints<br>
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/data_viewer.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/Levels_data_viewer.ipynb)
 
 ### Cherry picked results 👍
 
