@@ -119,37 +119,49 @@ you can check the results in every checkpoints<br>
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calisolo/Levels_image_captioning_NICE/blob/master/data_viewer.ipynb)
 
-### Cherry picked results
+### Cherry picked results 👍
 
 | example                                          | submission 3 |  submission 4    |  submission 5 (ensembled answer) |
 |---------------------------------------------|:-------------------------:|:---:|:------------------:|
-| <img src="./images/test/earrings.jpg" width="160"> |        精致小耳钉，点缀你的美        |  耳環,夾式耳環espritoutlet台北耳飾,耳環   |   小耳钉，让你的耳朵更有气质    |
-| <img src="./images/test/necklace.jpg" width="160" > |      精致锁骨链，点缀颈间的小性感       |  项链项链设计矢量矢量图素材第1页   |   精致锁骨链，彰显女性优雅气质   |
-| <img src="./images/test/berets.jpg" width="160" > |       复古贝雷帽，演绎秋冬新时尚       |  帽子女秋冬新款韩版时尚百搭羊毛呢贝雷   |     针织开衫，温暖又时髦     |
-| <img src="./images/test/glasses.jpg" width="160" > |      复古眼镜框，戴出你的潮流范儿       |  戴眼镜的女生头像_www.qqya.com   |    黑色毛呢外套，时髦又显瘦    |
-| <img src="./images/test/manicure.jpg" width="160" > |    小清新手绘美甲，让你的指尖充满艺术感     |  美甲图片大全可爱图片_www.qqya.com   |   美甲指甲油，让你的指甲更美丽   |
-| <img src="./images/test/lipstick.jpg" width="160" > |      高颜值口红，让你的唇色更加诱人      |  香奈儿chanel香奈兒香水香氛系列香水禮盒香   |    高颜值口红，让你爱不释手    |
-| <img src="./images/test/beauty-egg.jpg" width="160" > |       高颜值美妆蛋，打造精致妆容       |  日本canmake井田蜜粉饼控油定妆持久遮瑕控油   |  高颜值美妆蛋，轻松打造气质女神   |
-| <img src="./images/test/concealer-brush.jpg" width="160" > |       化妆刷选的好，妆容没烦恼        |  日本muji无印良品润唇膏保湿滋润唇部护理   |  秋冬季节，你需要一款好看的眼影盘  |
-| <img src="./images/test/skirt.jpg" width="160" > |       时尚百褶裙，让你美出新高度       |  百褶裙半身裙女秋冬2020新款韩版高腰a字   | 时尚百搭的半身裙，让你轻松穿出女神范 |
-| <img src="./images/test/high-heel.jpg" width="160" > |       尖头高跟鞋，穿出优雅女人味       |  shoesirizachristianlouboutin   |  时尚尖头高跟鞋，穿出优雅女人味   |
-| <img src="./images/test/socks.jpg" width="160" > |    加厚纯棉袜子女，冬季中筒袜学生堆堆袜     |  加厚羊绒袜子女中筒袜冬季加绒保暖棉袜   |    加厚羊绒袜，保暖又舒适     |
-| <img src="./images/test/red-dress.jpg" width="160" > |        吊带连衣裙，清凉一夏         |  日系小清新甜美可爱少女系学院风小红裙   |   一字肩连衣裙，穿出女神范儿    |
-| <img src="./images/test/bra.jpg" width="160" > |       内衣套装，给你贴心的呵护        |  红色背景上的女性手拿着一个红色的大象   | 红色婚庆用品，让你的婚礼更有仪式感  |
-| <img src="./images/test/toy-dog.jpg" width="160" > |      儿童毛绒玩具，陪伴宝宝快乐成长      |  【震撼精品百貨】mickymouse_米奇米妮~   |  可爱卡通毛绒玩具，萌化你的少女心  |
-| <img src="./images/test/apple.jpg" width="160" > |     烟台红富士苹果，脆甜多汁，香甜可口     |  山东烟台栖霞红富士苹果新鲜水果当季整   |    新鲜水果，让你爱不释手     |
-| <img src="./images/test/cake.jpg" width="160" > |      草莓奶油蛋糕，满足你的少女心       |  草莓奶油蛋糕图片   |   美味的生日蛋糕，让你爱不释手   |
-| <img src="./images/test/bread.jpg" width="160" > |        手撕面包，营养又美味         |  面包包装盒设计   | 好吃到停不下来的手撕面包，你吃过吗？ |
-| <img src="./images/test/biscuit.jpg" width="160" > |     香脆薄脆饼干，让你停不下来的美味      |  韩香海苔味薄脆加薯片休闲零食小吃膨化   |    美味零食，让你爱不释手     |
-| <img src="./images/test/sweeping-robot.jpg" width="160" > |      智能扫地机器人，让家更干净整洁      |  小米米家扫地机器人智能家用全自动吸尘   |  智能扫地机器人，让生活更有仪式感  |
-| <img src="./images/test/iphone11.jpg" width="160" > |     苹果11promax，性价比超高      |  苹果11手机壳iphone11promax保护套硅胶全包边   |    高颜值手机，你值得拥有     |
-| <img src="./images/test/washing-machine.jpg" width="160" > |       智能洗衣机，洗出健康好生活       |  洗衣机图标隔离在白色背景上。3d渲染。   |  智能洗衣机，让你的生活更有仪式感  |
-| <img src="./images/test/power-bank.jpg" width="160" > |    时尚充电宝，让你的手机充电更快更安全     |  小米移动电源10000毫安超大容量充电宝   |  高颜值充电宝，让你的手机充电更快  |
-| <img src="./images/test/shoes.jpg" width="160" > |       时尚运动鞋，让你运动更自信       |  特步专柜款男子夏季跑鞋17新品气垫减震   |  舒适跑步鞋，让你轻松跑出好身材   |
-| <img src="./images/test/denim-jacket.jpg" width="160" > |      时尚潮流资讯，型男把妹约会夹克      |  男童外套春秋季新款韩版儿童夹克中大童   |   时尚潮流，型男原创休闲衬衫    |
-| <img src="./images/test/hoodie.jpg" width="160" > |      时尚灵感指南，型男原创街拍卫衣      |  男士长袖t恤秋季新款韩版潮流宽松圆领   |  时尚灵感指南，型男原创潮流卫衣   |
+| <img src="./images/test/1587048470.jpg" width="160"> |    A couple sitting at a cafe table   |  A couple talking and drinking coffee   |   A couple talking over a cup of coffee   |
+| <img src="./images/test/1587145895.jpg" width="160" > |  View of a colorful hot air balloon against blue sky Balloon Festival Albuquerque New Mexico USA  |  Low angle view of a colorful hot air balloon against blue sky Balloon Festival Albuquerque New Mexico USA |   View of a colorful hot air balloon against blue sky Balloon Festival Albuquerque New Mexico USA |
+| <img src="./images/test/1586664113.jpg" width="160" > |  A happy couple holding keys with selective focus on the keys | Young couple holding keys with selective focus on the keys  |  A happy couple holding keys with selective focus on the keys |
+| <img src="./images/test/1570230836.jpg" width="160" > | View to Forte Falcone Portoferraio Island of Elba Province of Livorno Tuscany Italy  | View to Sertigtal Davos Grisons Switzerland | View to Sertigtal Davos Grisons Switzerland|
+| <img src="./images/test/1874256485.jpg" width="160" > |  High angle view of a young woman packing boxes| Rear view of young woman moving in carrying boxes down staircase  |  High angle view of a young woman packing boxes |
+| <img src="./images/test/1570574063.jpg" width="160" > |  Heavy rain at Amazon River near Pevas Peru | Heavy rain at Amazon River near Panelas Brazil | Heavy rain at Amazon River near Panelas Brazil |
+| <img src="./images/test/1844769086.jpg" width="160" > |  Portrait of a young man sitting on a railing and using a digital tablet in the street with a stop sign in the background | Portrait of a young man sitting on a railing and using a digital tablet under a stop sign | Young man sitting on a railing and using a digital tablet with a stop sign in the background |
 
 
+
+### Randomly chosen results 🗽
+
+| example                                          | submission 3 |  submission 4    |  submission 5 (ensembled answer) |
+|---------------------------------------------|:-------------------------:|:---:|:------------------:|
+| <img src="./images/test/1862063177.jpg" width="160" > |  Multi generation family jumping into the lake   | Wide shot of a family running over a wooden jetty to jump into the lake | Multi generation family running over a wooden jetty to jump into the lake |
+| <img src="./images/test/1851401537.jpg" width="160" > | Horizontal shot of a standing businessman with clipboard leaning on a door and looking at the camera | Horizontal shot of a businessman with a folder standing in the corridor of an office building with copy space | Horizontal shot of a businessman with a folder standing in the corridor of an office building with copy space |
+| <img src="./images/test/1586693726.jpg" width="160" > | Female chemistry teacher in laboratory classroom | Mature chemistry teacher conducting scientific experiment in laboratory classroom| Mature chemistry teacher looking out of the window in laboratory classroom |
+| <img src="./images/test/1709388773.jpg" width="160" > | Portrait of a teenage couple  | Romantic Young Couple Kissing In Countryside Together | Portrait of a teenage couple |
+| <img src="./images/test/1873346234.jpg" width="160" > | Wide shot of a windsurfer windsurfing on sunny windy waves | Silhouetted of a windsurfer windsurfing on sunny windy waves | Wide shot of a windsurfer windsurfing on sunny windy waves |
+| <img src="./images/test/1878692729.jpg" width="160" > | Vertical shot of a teacher watching high school girls conducting scientific experiment on a plant during a biology class  | Vertical shot of a teacher watching a young boy and a girl conducting experiment on a plant during a biology class| Vertical shot of a teacher watching high school girls conducting scientific experiment on a plant during a biology class |
+| <img src="./images/test/1590160349.jpg" width="160" > | Beach and a hotel at sunset Dischma Valley Davos Graubuenden Grisons Switzerland  | Beach of Biarritz France | Beach of Isla Magdalena Baja California Sur Mexico|
+| <img src="./images/test/1859143001.jpg" width="160" > | Portrait shot of a young boy holding a fishing net at the beach with his family in the background | Portrait shot of a young boy holding a fishing net on a lake with his family in the background  | Portrait shot of a young boy holding a fishing net with his family in the background |
+| <img src="./images/test/1570160972.jpg" width="160" > | Aldabra giant tortoise Aldabra Atoll Seychelles    | Aldabra giant tortoise Aldabra Atoll Seychelles | Aldabra giant tortoise Aldabra Atoll Seychelles |
+| <img src="./images/test/1590359888.jpg" width="160" > | Cactus at Mount Teide Teide National Park Tenerife Canary Islands Spain | Cactus at Mount Teide Teide National Park Tenerife Canary Islands Spain | Cactus at Mount Teide Teide National Park Tenerife Canary Islands Spain |
+| <img src="./images/test/1570573490.jpg" width="160" > | Riverside of Amazon River near Panelas Brazil | Riverside of Amazon River near Uara Brazil | Riverside of Amazon River near Uara Brazil |
+| <img src="./images/test/1859334842.jpg" width="160" > | A medium shot of a group of people looking at a computer in an office | A medium shot of a group of people standing and sitting around a computer in office | A medium shot of a group of people standing and sitting around a computer in office|
+| <img src="./images/test/1878690473.jpg" width="160" > | Vertical shot of a middle school student reading sheet music and playing a saxophone with a music teacher playing piano in the foreground | Vertical shot of a high school student playing a saxophone with a music teacher playing piano in the foreground | Vertical shot of a middle school student playing a saxophone in a music class with a music teacher playing piano in the foreground |
+| <img src="./images/test/1874804891.jpg" width="160" > | Beekeeper using smoker to check beehives in field full of flowers | Beekeeper using smoker to check beehives in the field full of flowers | Beekeeper using smoker to check beehives in the field full of flowers |
+
+
+### Is hint Levels working? 🎚️
+| example                                     | most similar picture(from valid set) |  shot_style near example    |  location near example |
+|---------------------------------------------|:-------------------------:|:---:|:------------------:|
+| <img src="./images/test/1859328467.jpg" width="160" > | <img src="./images/test/1878695789.jpg" width="160" >   | A side profile Close up shot of, A portrait shot of , A Close up vertical shot of , A medium shot of  |  NULL  |
+| <img src="./images/test/1587851066.jpg" width="160" > |  <img src="./images/test/1571687243.jpg" width="160" > |  View of , Close up of | [diffHint lv3]Prague,[diffHint lv3]Prague,[diffHint lv3]Germany,[diffHint lv3]The Alps Graubunden Switzerland   |
+| <img src="./images/test/1844767058.jpg" width="160" > |  <img src="./images/test/1844767067.jpg" width="160" > | Portrait of , Portrait |  NULL   |
+| <img src="./images/test/1567878524.jpg" width="160" > |  <img src="./images/test/1590160802.jpg" width="160" > | View to  |  [diffHint lv3]Prattigau near Davos Grisons Switzerland,[diffHint lv3]Prattigau near Davos Grisons Switzerland ,[diffHint lv3]Davos Grisons Switzerland,[diffHint lv3]Davos and Dischmatal,[diffHint lv2]Mediterranean Sea Malta |
+
+YES IT IS! 😸
 
 ## Code Details
 
