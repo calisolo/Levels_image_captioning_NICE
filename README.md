@@ -101,14 +101,17 @@ CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.js
 
 
 ### Model Checkpoints
-|         Model             |                   introduction                                   | Link                         |
+|         Model             |                   introduction                                   | Link & how to make                         |
 |------------------------------|-----------------------------------------------------------|-----------------------------------------------------|
-| calisolo/OFA_huge_image_captioning| Optimized checkpoints for image captioning in the OFA-SYS | https://huggingface.co/calisolo/OFA_huge_image_captioning |
-| calisolo/OFA_huge_NICE_captioning | One fine-tuned checkpoint with good progress when heuristically looked at | https://huggingface.co/calisolo/OFA_huge_NICE_captioning |
-| submission 3 checkpoint       | need to be reproduced with following train_args          |       |
-| submission 4 checkpoint    | need to be reproduced with following train_args        |     |
-| Ensemble 1 checkpoint   | need to be reproduced with following train_args         |  |
+| OFA captioning fit| Optimized checkpoints for image captioning in the OFA-SYS | https://huggingface.co/calisolo/OFA_huge_image_captioning |
+| Submission3 |3rd submission| https://huggingface.co/calisolo/OFA_huge_NICE_captioning |
+| Ensemble1 | Adjusting hyperparameters to adjust convergence speed |   calisolo/OFA_huge_NICE_captioning/candidate1_trainLess    |
+| Ensemble2 | Adjusting hyperparameters to adjust convergence speed |   calisolo/OFA_huge_NICE_captioning/candidate2_short     |
+| Ensemble3 | Adjusting hyperparameters to adjust convergence speed |   calisolo/OFA_huge_NICE_captioning/candidate3_lastcoin     |
 
+The final submission was created by voting on the five checkpoints above.
+
+ 
 ## 2. Results analysis and ensemble
 
 At each checkpoint, the caption results for 21377 photos are obtained and compared, and the final result is selected by voting based on the cosine similarity of natural language.
