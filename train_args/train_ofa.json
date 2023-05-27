@@ -1,8 +1,8 @@
 {
-    "output_dir": "../drive/MyDrive/NICE/model/0501_lastcoin",
-    "model_name_or_path": "../drive/MyDrive/NICE/model/cap_best/OFA-huge-caption",
+    "output_dir": "../model/0501_lastcoin",
+    "model_name_or_path": "calisolo/OFA_huge_image_captioning",
     "train_caption_file": "./data/train_caption_catAdded_2.jsonl",
-    "train_image_file": "../drive/MyDrive/NICE/train_image.tsv",
+    "train_image_file": "../NICE_tsv/train_image.tsv",
     "test_caption_file": null,
     "test_image_file": null,
     "freeze_encoder": false,
