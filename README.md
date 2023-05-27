@@ -105,10 +105,10 @@ CUDA_VISIBLE_DEVICES=0 python train.py --train_args_file train_args/train_ofa.js
 |------------------------------|-----------------------------------------------------------|-----------------------------------------------------|
 | OFA captioning fit| Optimized checkpoints for image captioning in the OFA-SYS | https://huggingface.co/calisolo/OFA_huge_image_captioning |
 | Submission3 |3rd submission| https://huggingface.co/calisolo/OFA_huge_NICE_captioning |
-| Submission4 |4th submission| /submission4(https://huggingface.co/calisolo/OFA_huge_NICE_captioning/tree/main/submission4)|
-| Ensemble1 | Adjusting hyperparameters to adjust convergence speed |   /candidate1_trainLess(https://huggingface.co/calisolo/OFA_huge_NICE_captioning/tree/main/candidate1_trainLess)    |
-| Ensemble2 | Adjusting hyperparameters to adjust convergence speed |   /candidate2_short(https://huggingface.co/calisolo/OFA_huge_NICE_captioning/tree/main/candidate2_short)     |
-| Ensemble3 | Adjusting hyperparameters to adjust convergence speed |   /candidate3_lastcoin(https://huggingface.co/calisolo/OFA_huge_NICE_captioning/tree/main/candidate3_lastcoin)     |
+| Submission4 |4th submission| [/submission4](https://huggingface.co/calisolo/OFA_huge_NICE_captioning/tree/main/submission4)|
+| Ensemble1 | Adjusting hyperparameters to adjust convergence speed |   [/candidate1_trainLess](https://huggingface.co/calisolo/OFA_huge_NICE_captioning/tree/main/candidate1_trainLess)    |
+| Ensemble2 | Adjusting hyperparameters to adjust convergence speed |   [/candidate2_short](https://huggingface.co/calisolo/OFA_huge_NICE_captioning/tree/main/candidate2_short)     |
+| Ensemble3 | Adjusting hyperparameters to adjust convergence speed |   [/candidate3_lastcoin](https://huggingface.co/calisolo/OFA_huge_NICE_captioning/tree/main/candidate3_lastcoin)     |
 
 The final submission was created by voting on the five checkpoints above.
 
