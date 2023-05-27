@@ -9,8 +9,6 @@ NICE is an Image Captioning Task, which is a task to create appropriate captions
 본 프로젝트는 OFA Chinese를 기반으로 변형하여 **NICE(New frontiers for zero-shot Image Captioning Evaluation)** challenge 2023 를 도전하여 **Track2 2nd/ Total 4th**의 성과를 내었습니다. (**CVPR 2023 Workshop**)
 NICE는 Image Captioning Task 로, ShutterStock 사에서 제공한 각 사진에 알맞는 캡션을 생성하는 과제입니다. NICE dataset 에서 나타나는 말투가 특이하게 느껴진다는 직관을 바탕으로, 이를 controlled dialogue generation 관점에서 접근하였습니다.
 
-Editing :joy_cat::joy_cat::joy_cat:
-
 ## Quick Start 
 
 Utilize preprocessed cosine similarities, trained models, etc.<br>
@@ -123,13 +121,13 @@ you can check the results in every checkpoints<br>
 
 | example                                          | submission 3 |  submission 4    |  submission 5 (ensembled answer) |
 |---------------------------------------------|:-------------------------:|:---:|:------------------:|
-| <img src="./images/test/1587048470.jpg" width="160"> |    A couple sitting at a cafe table   |  A couple talking and drinking coffee   |   A couple talking over a cup of coffee   |
-| <img src="./images/test/1587145895.jpg" width="160" > |  View of a colorful hot air balloon against blue sky Balloon Festival Albuquerque New Mexico USA  |  Low angle view of a colorful hot air balloon against blue sky Balloon Festival Albuquerque New Mexico USA |   View of a colorful hot air balloon against blue sky Balloon Festival Albuquerque New Mexico USA |
-| <img src="./images/test/1586664113.jpg" width="160" > |  A happy couple holding keys with selective focus on the keys | Young couple holding keys with selective focus on the keys  |  A happy couple holding keys with selective focus on the keys |
-| <img src="./images/test/1570230836.jpg" width="160" > | View to Forte Falcone Portoferraio Island of Elba Province of Livorno Tuscany Italy  | View to Sertigtal Davos Grisons Switzerland | View to Sertigtal Davos Grisons Switzerland|
-| <img src="./images/test/1874256485.jpg" width="160" > |  High angle view of a young woman packing boxes| Rear view of young woman moving in carrying boxes down staircase  |  High angle view of a young woman packing boxes |
-| <img src="./images/test/1570574063.jpg" width="160" > |  Heavy rain at Amazon River near Pevas Peru | Heavy rain at Amazon River near Panelas Brazil | Heavy rain at Amazon River near Panelas Brazil |
-| <img src="./images/test/1844769086.jpg" width="160" > |  Portrait of a young man sitting on a railing and using a digital tablet in the street with a stop sign in the background | Portrait of a young man sitting on a railing and using a digital tablet under a stop sign | Young man sitting on a railing and using a digital tablet with a stop sign in the background |
+| <img src="./images/test/1587048470.jpg" width="320"> |    A couple sitting at a cafe table   |  A couple talking and drinking coffee   |   A couple talking over a cup of coffee   |
+| <img src="./images/test/1587145895.jpg" width="320" > |  View of a colorful hot air balloon against blue sky Balloon Festival Albuquerque New Mexico USA  |  Low angle view of a colorful hot air balloon against blue sky Balloon Festival Albuquerque New Mexico USA |   View of a colorful hot air balloon against blue sky Balloon Festival Albuquerque New Mexico USA |
+| <img src="./images/test/1586664113.jpg" width="320" > |  A happy couple holding keys with selective focus on the keys | Young couple holding keys with selective focus on the keys  |  A happy couple holding keys with selective focus on the keys |
+| <img src="./images/test/1570230836.jpg" width="320" > | View to Forte Falcone Portoferraio Island of Elba Province of Livorno Tuscany Italy  | View to Sertigtal Davos Grisons Switzerland | View to Sertigtal Davos Grisons Switzerland|
+| <img src="./images/test/1874256485.jpg" width="320" > |  High angle view of a young woman packing boxes| Rear view of young woman moving in carrying boxes down staircase  |  High angle view of a young woman packing boxes |
+| <img src="./images/test/1570574063.jpg" width="320" > |  Heavy rain at Amazon River near Pevas Peru | Heavy rain at Amazon River near Panelas Brazil | Heavy rain at Amazon River near Panelas Brazil |
+| <img src="./images/test/1844769086.jpg" width="320" > |  Portrait of a young man sitting on a railing and using a digital tablet in the street with a stop sign in the background | Portrait of a young man sitting on a railing and using a digital tablet under a stop sign | Young man sitting on a railing and using a digital tablet with a stop sign in the background |
 
 
 
@@ -137,29 +135,29 @@ you can check the results in every checkpoints<br>
 
 | example                                          | submission 3 |  submission 4    |  submission 5 (ensembled answer) |
 |---------------------------------------------|:-------------------------:|:---:|:------------------:|
-| <img src="./images/test/1862063177.jpg" width="160" > |  Multi generation family jumping into the lake   | Wide shot of a family running over a wooden jetty to jump into the lake | Multi generation family running over a wooden jetty to jump into the lake |
-| <img src="./images/test/1851401537.jpg" width="160" > | Horizontal shot of a standing businessman with clipboard leaning on a door and looking at the camera | Horizontal shot of a businessman with a folder standing in the corridor of an office building with copy space | Horizontal shot of a businessman with a folder standing in the corridor of an office building with copy space |
-| <img src="./images/test/1586693726.jpg" width="160" > | Female chemistry teacher in laboratory classroom | Mature chemistry teacher conducting scientific experiment in laboratory classroom| Mature chemistry teacher looking out of the window in laboratory classroom |
-| <img src="./images/test/1709388773.jpg" width="160" > | Portrait of a teenage couple  | Romantic Young Couple Kissing In Countryside Together | Portrait of a teenage couple |
-| <img src="./images/test/1873346234.jpg" width="160" > | Wide shot of a windsurfer windsurfing on sunny windy waves | Silhouetted of a windsurfer windsurfing on sunny windy waves | Wide shot of a windsurfer windsurfing on sunny windy waves |
-| <img src="./images/test/1878692729.jpg" width="160" > | Vertical shot of a teacher watching high school girls conducting scientific experiment on a plant during a biology class  | Vertical shot of a teacher watching a young boy and a girl conducting experiment on a plant during a biology class| Vertical shot of a teacher watching high school girls conducting scientific experiment on a plant during a biology class |
-| <img src="./images/test/1590160349.jpg" width="160" > | Beach and a hotel at sunset Dischma Valley Davos Graubuenden Grisons Switzerland  | Beach of Biarritz France | Beach of Isla Magdalena Baja California Sur Mexico|
-| <img src="./images/test/1859143001.jpg" width="160" > | Portrait shot of a young boy holding a fishing net at the beach with his family in the background | Portrait shot of a young boy holding a fishing net on a lake with his family in the background  | Portrait shot of a young boy holding a fishing net with his family in the background |
-| <img src="./images/test/1570160972.jpg" width="160" > | Aldabra giant tortoise Aldabra Atoll Seychelles    | Aldabra giant tortoise Aldabra Atoll Seychelles | Aldabra giant tortoise Aldabra Atoll Seychelles |
-| <img src="./images/test/1590359888.jpg" width="160" > | Cactus at Mount Teide Teide National Park Tenerife Canary Islands Spain | Cactus at Mount Teide Teide National Park Tenerife Canary Islands Spain | Cactus at Mount Teide Teide National Park Tenerife Canary Islands Spain |
-| <img src="./images/test/1570573490.jpg" width="160" > | Riverside of Amazon River near Panelas Brazil | Riverside of Amazon River near Uara Brazil | Riverside of Amazon River near Uara Brazil |
-| <img src="./images/test/1859334842.jpg" width="160" > | A medium shot of a group of people looking at a computer in an office | A medium shot of a group of people standing and sitting around a computer in office | A medium shot of a group of people standing and sitting around a computer in office|
-| <img src="./images/test/1878690473.jpg" width="160" > | Vertical shot of a middle school student reading sheet music and playing a saxophone with a music teacher playing piano in the foreground | Vertical shot of a high school student playing a saxophone with a music teacher playing piano in the foreground | Vertical shot of a middle school student playing a saxophone in a music class with a music teacher playing piano in the foreground |
-| <img src="./images/test/1874804891.jpg" width="160" > | Beekeeper using smoker to check beehives in field full of flowers | Beekeeper using smoker to check beehives in the field full of flowers | Beekeeper using smoker to check beehives in the field full of flowers |
+| <img src="./images/test/1862063177.jpg" width="320" > |  Multi generation family jumping into the lake   | Wide shot of a family running over a wooden jetty to jump into the lake | Multi generation family running over a wooden jetty to jump into the lake |
+| <img src="./images/test/1851401537.jpg" width="320" > | Horizontal shot of a standing businessman with clipboard leaning on a door and looking at the camera | Horizontal shot of a businessman with a folder standing in the corridor of an office building with copy space | Horizontal shot of a businessman with a folder standing in the corridor of an office building with copy space |
+| <img src="./images/test/1586693726.jpg" width="320" > | Female chemistry teacher in laboratory classroom | Mature chemistry teacher conducting scientific experiment in laboratory classroom| Mature chemistry teacher looking out of the window in laboratory classroom |
+| <img src="./images/test/1709388773.jpg" width="320" > | Portrait of a teenage couple  | Romantic Young Couple Kissing In Countryside Together | Portrait of a teenage couple |
+| <img src="./images/test/1873346234.jpg" width="320" > | Wide shot of a windsurfer windsurfing on sunny windy waves | Silhouetted of a windsurfer windsurfing on sunny windy waves | Wide shot of a windsurfer windsurfing on sunny windy waves |
+| <img src="./images/test/1878692729.jpg" width="320" > | Vertical shot of a teacher watching high school girls conducting scientific experiment on a plant during a biology class  | Vertical shot of a teacher watching a young boy and a girl conducting experiment on a plant during a biology class| Vertical shot of a teacher watching high school girls conducting scientific experiment on a plant during a biology class |
+| <img src="./images/test/1590160349.jpg" width="320" > | Beach and a hotel at sunset Dischma Valley Davos Graubuenden Grisons Switzerland  | Beach of Biarritz France | Beach of Isla Magdalena Baja California Sur Mexico|
+| <img src="./images/test/1859143001.jpg" width="320" > | Portrait shot of a young boy holding a fishing net at the beach with his family in the background | Portrait shot of a young boy holding a fishing net on a lake with his family in the background  | Portrait shot of a young boy holding a fishing net with his family in the background |
+| <img src="./images/test/1570160972.jpg" width="320" > | Aldabra giant tortoise Aldabra Atoll Seychelles    | Aldabra giant tortoise Aldabra Atoll Seychelles | Aldabra giant tortoise Aldabra Atoll Seychelles |
+| <img src="./images/test/1590359888.jpg" width="320" > | Cactus at Mount Teide Teide National Park Tenerife Canary Islands Spain | Cactus at Mount Teide Teide National Park Tenerife Canary Islands Spain | Cactus at Mount Teide Teide National Park Tenerife Canary Islands Spain |
+| <img src="./images/test/1570573490.jpg" width="320" > | Riverside of Amazon River near Panelas Brazil | Riverside of Amazon River near Uara Brazil | Riverside of Amazon River near Uara Brazil |
+| <img src="./images/test/1859334842.jpg" width="320" > | A medium shot of a group of people looking at a computer in an office | A medium shot of a group of people standing and sitting around a computer in office | A medium shot of a group of people standing and sitting around a computer in office|
+| <img src="./images/test/1878690473.jpg" width="320" > | Vertical shot of a middle school student reading sheet music and playing a saxophone with a music teacher playing piano in the foreground | Vertical shot of a high school student playing a saxophone with a music teacher playing piano in the foreground | Vertical shot of a middle school student playing a saxophone in a music class with a music teacher playing piano in the foreground |
+| <img src="./images/test/1874804891.jpg" width="320" > | Beekeeper using smoker to check beehives in field full of flowers | Beekeeper using smoker to check beehives in the field full of flowers | Beekeeper using smoker to check beehives in the field full of flowers |
 
 
 ### Is hint Levels working? 🎚️
 | example                                     | most similar picture(from valid set) |  shot_style near example    |  location near example |
 |---------------------------------------------|:-------------------------:|:---:|:------------------:|
-| <img src="./images/test/1859328467.jpg" width="160" > | <img src="./images/test/1878695789.jpg" width="160" >   | A side profile Close up shot of, A portrait shot of , A Close up vertical shot of , A medium shot of  |  NULL  |
-| <img src="./images/test/1587851066.jpg" width="160" > |  <img src="./images/test/1571687243.jpg" width="160" > |  View of , Close up of | [diffHint lv3]Prague,[diffHint lv3]Prague,[diffHint lv3]Germany,[diffHint lv3]The Alps Graubunden Switzerland   |
-| <img src="./images/test/1844767058.jpg" width="160" > |  <img src="./images/test/1844767067.jpg" width="160" > | Portrait of , Portrait |  NULL   |
-| <img src="./images/test/1567878524.jpg" width="160" > |  <img src="./images/test/1590160802.jpg" width="160" > | View to  |  [diffHint lv3]Prattigau near Davos Grisons Switzerland,[diffHint lv3]Prattigau near Davos Grisons Switzerland ,[diffHint lv3]Davos Grisons Switzerland,[diffHint lv3]Davos and Dischmatal,[diffHint lv2]Mediterranean Sea Malta |
+| <img src="./images/test/1859328467.jpg" width="320" > | <img src="./images/test/1878695789.jpg" width="160" >   | A side profile Close up shot of, A portrait shot of , A Close up vertical shot of , A medium shot of  |  NULL  |
+| <img src="./images/test/1587851066.jpg" width="320" > |  <img src="./images/test/1571687243.jpg" width="160" > |  View of , Close up of | [diffHint lv3]Prague,[diffHint lv3]Prague,[diffHint lv3]Germany,[diffHint lv3]The Alps Graubunden Switzerland   |
+| <img src="./images/test/1844767058.jpg" width="320" > |  <img src="./images/test/1844767067.jpg" width="160" > | Portrait of , Portrait |  NULL   |
+| <img src="./images/test/1567878524.jpg" width="320" > |  <img src="./images/test/1590160802.jpg" width="160" > | View to  |  [diffHint lv3]Prattigau near Davos Grisons Switzerland,[diffHint lv3]Prattigau near Davos Grisons Switzerland ,[diffHint lv3]Davos Grisons Switzerland,[diffHint lv3]Davos and Dischmatal,[diffHint lv2]Mediterranean Sea Malta |
 
 YES IT IS! 😸
 
