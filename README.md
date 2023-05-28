@@ -56,7 +56,8 @@ To identify trends, manually tagging was performed on 5000 cases as follows. (6-
 I use the NICE validation dataset as training data. The dataset consists of two files: caption data and image data. <br>
 The training data consists of NICE validation data(5000 cases) and the test data consists of NICE test data (21377 cases). <br>
 Caption data stores hints constructed based on id similarity and image cosine similarity, and **levels** meaning the strength of the hint.
-<img src="./NICE/Input form.PNG" width="960" >
+<img src="./NICE/Input_form.PNG" width="960" >
+
 <details>
 <summary>(click!)How to make encoder_prefix (Input data format using Levels)</summary>
 <br><br>
