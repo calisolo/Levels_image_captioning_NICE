@@ -9,6 +9,13 @@ NICE is an Image Captioning Task, which is a task to create appropriate captions
 본 프로젝트는 OFA Chinese를 기반으로 변형하여 **NICE(New frontiers for zero-shot Image Captioning Evaluation)** challenge 2023 를 도전하여 **Track2 2nd/ Total 4th**의 성과를 내었습니다. (**CVPR 2023 Workshop**)
 NICE는 Image Captioning Task 로, ShutterStock 사에서 제공한 각 사진에 알맞는 캡션을 생성하는 과제입니다. NICE dataset 에서 나타나는 말투가 특이하게 느껴진다는 직관을 바탕으로, 이를 controlled dialogue generation 관점에서 접근하였습니다.
 
+
+
+<img src="./NICE/NICE1.png" width="320" > <img src="./NICE/NICE2.png" width="320" > 
+
+📖[English technical report](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/NICE/NICE%20-%20calisolo%20-%20eng.pdf)<br>
+📖[Korean technical report](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/NICE/NICE%20-%20calisolo%20-%20kor.pdf)
+
 ## Quick Start 
 
 Utilize preprocessed cosine similarities, trained models, etc.<br>
@@ -37,8 +44,8 @@ To identify trends, manually tagging was performed on 5000 cases as follows. (6-
 | View of town and bridge spanning river on sunny day Jarnac and the Charente river West Central France | View of | Jarnac and the Charente river West Central France|
 | Sun beach and ocean at Gerrans Bay Cornwall United Kingdom | NULL |   Gerrans Bay Cornwall United Kingdom  |
 
-[original validation set](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/data/nice-val-5k.csv) <br>
-[tagged validation set](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/data/shotstyle_location%20worked.csv)
+🚋[original validation set](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/data/nice-val-5k.csv) <br>
+🚆[tagged validation set](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/data/shotstyle_location%20worked.csv)
  
 **Hypothesis**
 1. Photos provided by the same supplier can be inferred through the information inherent in the image, and the subject/photo/caption method will be similar.
@@ -49,7 +56,7 @@ To identify trends, manually tagging was performed on 5000 cases as follows. (6-
 I use the NICE validation dataset as training data. The dataset consists of two files: caption data and image data. <br>
 The training data consists of NICE validation data(5000 cases) and the test data consists of NICE test data (21377 cases). <br>
 Caption data stores hints constructed based on id similarity and image cosine similarity, and **levels** meaning the strength of the hint.
-
+<img src="./NICE/Input form.PNG" width="960" >
 <details>
 <summary>(click!)How to make encoder_prefix (Input data format using Levels)</summary>
 <br><br>
@@ -199,5 +206,4 @@ codebase
 
 ### Description of the OFA Chinese
 - The OFA-sys official codebase has a high degree of complexity to be compatible with several experimental configurations. OFA Chinese is a huggingface version of the fine-tuning code that leaves only the core logic.
-
 
