@@ -1,7 +1,8 @@
 # Levels
 Segment importance of hints seen by model to natural language token 'Levels'
 
-![Levels](https://github.com/calisolo/Levels_image_captioning_NICE/assets/8590225/6fdecc15-d36f-438a-86fd-97a67780daff)
+![Levels](https://github.com/calisolo/Levels_image_captioning_NICE/assets/8590225/71734aca-c159-4007-bd83-c0aa4dfbba2d)
+
 
 ## Abstract
 
