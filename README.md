@@ -1,6 +1,8 @@
 # Levels
 Segment importance of hints seen by model to natural language token 'Levels'
 
+![Levels](https://github.com/calisolo/Levels_image_captioning_NICE/assets/8590225/6fdecc15-d36f-438a-86fd-97a67780daff)
+
 ## Abstract
 
 This project was transformed based on OFA Chinese and challenged the **NICE (New frontiers for zero-shot Image Captioning Evaluation)** challenge 2023, resulting in **Track2 2nd/ Total 4th**. (**CVPR 2023 Workshop**)
