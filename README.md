@@ -29,7 +29,7 @@ You can check the submission creating procedure, output captions of each photo, 
 
 
 ## Main task
-- Since this approach is a methodology that connects the features of image captions with well-trained image encoder features, we utilized the open license model OFA, which has proven high performance.
+- Since this approach is a methodology that connects the features of image captions with well-trained image encoder features, I utilized the open license model OFA, which has proven high performance.
 - I wanted to create and train normalized hint level tokens so that the model could understand them.
 - model checkpoint transition from fairseq style to huggingface style checkpoint, I refer to the code below and give credit.
 - [Checkpoint transition](https://colab.research.google.com/drive/1LLJewY92LXdeug5m_ceMUHdlqrRQwSQJ?usp=sharing)
