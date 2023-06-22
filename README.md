@@ -13,7 +13,7 @@ NICE is an Image Captioning Task, which is a task to create appropriate captions
 NICE는 Image Captioning Task 로, ShutterStock 사에서 제공한 각 사진에 알맞는 캡션을 생성하는 과제입니다. NICE dataset 에서 나타나는 말투가 특이하게 느껴진다는 직관을 바탕으로, 이를 controlled dialogue generation 관점에서 접근하였습니다.
 
 
-
+<img src="./NICE/slide.PNG" width="960" ><br>
 <img src="./NICE/NICE1.png" width="320" > <img src="./NICE/NICE2.png" width="320" > 
 
 📖[English technical report](https://github.com/calisolo/Levels_image_captioning_NICE/blob/master/NICE/NICE%20-%20calisolo%20-%20eng.pdf)<br>
